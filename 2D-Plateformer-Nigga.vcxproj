@@ -144,6 +144,7 @@
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Hitbox.hpp" />
     <ClInclude Include="Level.hpp" />
     <ClInclude Include="physics.hpp" />
     <ClInclude Include="Player.hpp" />

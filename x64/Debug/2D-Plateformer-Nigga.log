@@ -111,10 +111,22 @@ E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(48,40): warning C4244: 'argum
           [
               T=float
           ]
-  main.cpp
-E:\Visual Studio\Projects\2D-Plateformer\Player.hpp(29,14): warning C4305: 'initializing': truncation from 'double' to 'float'
-  Player.cpp
-E:\Visual Studio\Projects\2D-Plateformer\Player.hpp(29,14): warning C4305: 'initializing': truncation from 'double' to 'float'
-  Generating Code...
-  LINK : E:\Visual Studio\Projects\2D-Plateformer\x64\Debug\2D-Plateformer-Nigga.exe not found or not built by the last incremental link; performing full link
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(55,23): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(56,23): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
   2D-Plateformer-Nigga.vcxproj -> E:\Visual Studio\Projects\2D-Plateformer\x64\Debug\2D-Plateformer-Nigga.exe

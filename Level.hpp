@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+#include "Hitbox.hpp"
+
 #define level_width 72
 #define level_height 12		//in pixels
 
@@ -19,6 +21,8 @@ public:
 	sf::Texture map;
 
 	int type[level_height][level_width];
+
+	Hitbox box;
 
 	Level(){}
 

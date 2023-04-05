@@ -49,6 +49,19 @@ void Level::create(std::string path, sf::Vector2u tile_size) {
 
 			current_position++;
 
+			//puts a hitbox for each block on the level
+			if (current_tile == get_tile_at(4, 14)) {
+
+				box.corner.x = (j * tile_size.x);
+				box.corner.y = (i * tile_size.y);
+
+				box.box_type = box.ground;
+
+				//debug
+				std::cout << "(" << box.corner.x/64 << ", " << box.corner.y << ")" << std::endl;
+
+			}
+
 		}
 
 	}
