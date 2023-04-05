@@ -1,0 +1,120 @@
+﻿  Level.cpp
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(37,61): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(37,42): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(38,75): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(38,57): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(39,90): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(39,57): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(40,76): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(40,42): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(45,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(45,40): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(46,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(46,49): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(47,64): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(47,49): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(48,59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(48,40): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  main.cpp
+E:\Visual Studio\Projects\2D-Plateformer\Player.hpp(29,14): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Player.cpp
+E:\Visual Studio\Projects\2D-Plateformer\Player.hpp(29,14): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Generating Code...
+  LINK : E:\Visual Studio\Projects\2D-Plateformer\x64\Debug\2D-Plateformer-Nigga.exe not found or not built by the last incremental link; performing full link
+  2D-Plateformer-Nigga.vcxproj -> E:\Visual Studio\Projects\2D-Plateformer\x64\Debug\2D-Plateformer-Nigga.exe
