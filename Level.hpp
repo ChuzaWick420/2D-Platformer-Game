@@ -22,9 +22,11 @@ public:
 
 	int type[level_height][level_width];
 
-	Hitbox box;
+	Level() {};
 
-	Level(){}
+	std::vector<Hitbox> hitboxes;
+
+	void create_hitboxes(sf::Vector2u tile_size);
 
 	void create(std::string path, sf::Vector2u tile_size);
 

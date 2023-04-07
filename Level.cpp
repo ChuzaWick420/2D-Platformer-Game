@@ -49,22 +49,37 @@ void Level::create(std::string path, sf::Vector2u tile_size) {
 
 			current_position++;
 
-			//puts a hitbox for each block on the level
 			if (current_tile == get_tile_at(4, 14)) {
-
-				box.corner.x = (j * tile_size.x);
-				box.corner.y = (i * tile_size.y);
-
-				box.box_type = box.ground;
-
-				//debug
-				std::cout << "(" << box.corner.x/64 << ", " << box.corner.y << ")" << std::endl;
-
+				std::cout << "Tile: " << "(" << j * tile_size.x << ", " << i * tile_size.y << ")" << std::endl;
 			}
 
 		}
 
 	}
+
+}
+
+void Level::create_hitboxes(sf::Vector2u tile_size) {
+
+	for (int i = 0; i < level_height; i++) {
+
+		for (int j = 0; j < level_width; j++) {
+
+			if (type[i][j] == get_tile_at(4, 14)) {
+				this->hitboxes.push_back(Hitbox(sf::Vector2f(j * tile_size.x, i * tile_size.y), sf::Vector2f(16, 16)));
+			}
+
+		}
+
+	}
+
+	//debug
+	for (std::vector<Hitbox>::iterator i = hitboxes.begin(); i != hitboxes.end(); ++i) {
+
+		std::cout << "Hitbox: " << "(" << i->get_position().x << ", " << i->get_position().y << ")" << std::endl;
+
+	}
+
 
 }
 

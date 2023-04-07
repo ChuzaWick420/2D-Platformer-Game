@@ -111,7 +111,7 @@ E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(48,40): warning C4244: 'argum
           [
               T=float
           ]
-E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(55,23): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(69,69): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -120,7 +120,7 @@ E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(55,23): warning C4244: '=': c
           [
               T=float
           ]
-E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(56,23): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(69,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -129,4 +129,7 @@ E:\Visual Studio\Projects\2D-Plateformer\Level.cpp(56,23): warning C4244: '=': c
           [
               T=float
           ]
+  main.cpp
+E:\Visual Studio\Projects\2D-Plateformer\Player.hpp(29): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Generating Code...
   2D-Plateformer-Nigga.vcxproj -> E:\Visual Studio\Projects\2D-Plateformer\x64\Debug\2D-Plateformer-Nigga.exe

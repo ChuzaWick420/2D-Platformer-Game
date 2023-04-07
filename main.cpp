@@ -14,6 +14,7 @@ int main() {
 
 	Level level;
 	level.create("1.png", sf::Vector2u(64, 64));
+	level.create_hitboxes(sf::Vector2u(64, 64));
 
 	//window icon
 	sf::Image w_icon;

@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Player.hpp"
+#include "Hitbox.hpp"
 
 bool control(Player& target) {
 
