@@ -66,7 +66,7 @@ void Level::create_hitboxes(sf::Vector2u tile_size) {
 		for (int j = 0; j < level_width; j++) {
 
 			if (type[i][j] == get_tile_at(4, 14)) {
-				this->hitboxes.push_back(Hitbox(sf::Vector2f(j * tile_size.x, i * tile_size.y), sf::Vector2f(16, 16)));
+				this->hitboxes.push_back(Hitbox(sf::Vector2f(j * tile_size.x, i * tile_size.y), sf::Vector2f(tile_size.x, tile_size.y)));
 			}
 
 		}
