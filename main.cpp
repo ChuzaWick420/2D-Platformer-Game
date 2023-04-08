@@ -24,6 +24,8 @@ int main() {
 
 	Player player;
 
+	player.player_sprite.setOrigin(sf::Vector2f(player.idle_t[0].getSize().x / 2, player.idle_t[0].getSize().y / 2));
+
 	player.create_hitbox(
 		player.player_sprite.getPosition(), 
 		{
@@ -32,8 +34,8 @@ int main() {
 		}
 	);
 
-	//debug player's sprite size
-	std::cout << player.player_sprite.getGlobalBounds().width << ", " << player.player_sprite.getGlobalBounds().height << std::endl;
+	//debug player's position
+	std::cout << player.player_sprite.getPosition().x << ", " << player.player_sprite.getPosition().y << std::endl;
 
 	//variables
 	sf::Clock game_ticks, player_ticks, fps, physics_clock;
@@ -47,8 +49,6 @@ int main() {
 	int current_frame = 0;
 
 	float gravity_coefficient = 0;
-
-	bool change_dir;
 
 	//game loop
 	while (game_window.isOpen()) {
@@ -67,13 +67,10 @@ int main() {
 
 			apply_gravity(player.player_sprite, level.hitboxes[0], gravity_coefficient, player.on_ground);
 
-			change_dir = control(player);
+			control(player);
 
 			//updates hitboxes
 			player.get_hitbox().update(player.player_sprite);
-
-			//debug player's hitbox position
-			std::cout << "Player's hitbox: " << "(" << player.get_hitbox().get_position().x << ", " << player.get_hitbox().get_position().y << ")" << std::endl;
 
 			physics_clock.restart();
 
@@ -91,17 +88,6 @@ int main() {
 			else
 				current_frame = 0;	//reset
 
-			//switches player's movements smoothly
-			if (change_dir == true) {
-
-				if(player.current_direction == Player::R)
-					player.player_sprite.move(-player.player_sprite.getGlobalBounds().width, 0);
-
-				if (player.current_direction == Player::L)
-					player.player_sprite.move(player.player_sprite.getGlobalBounds().width, 0);
-
-			}
-
 			//reset the ticks
 			game_ticks.restart();
 
@@ -114,6 +100,7 @@ int main() {
 			level.render(game_window);
 			player.render(game_window);
 			player.get_hitbox().render(game_window);
+			level.hitboxes[0].render(game_window);
 			game_window.display();
 
 			fps.restart();

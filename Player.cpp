@@ -66,6 +66,8 @@ void Player::animate(state is_doing, int frame_number) {
 
 void Player::create_hitbox(sf::Vector2f t_position, sf::Vector2f t_size) {
 
+	//player's origin is in the middle of the sprite
+
 	this->hitbox.create(t_position, t_size);
 
 }

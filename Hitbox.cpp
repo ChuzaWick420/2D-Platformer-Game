@@ -12,7 +12,7 @@ void Hitbox::create(sf::Vector2f t_position, sf::Vector2f t_size) {
 
 void Hitbox::update(sf::Sprite& target) {
 
-	this->hitbox.setPosition(target.getPosition());
+	this->hitbox.setPosition(target.getPosition().x - target.getOrigin().x * abs(target.getScale().x), target.getPosition().y - target.getOrigin().y * abs(target.getScale().y));
 
 }
 

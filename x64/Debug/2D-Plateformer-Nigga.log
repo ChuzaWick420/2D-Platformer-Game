@@ -1,4 +1,22 @@
 ﻿  main.cpp
 E:\Visual Studio\Projects\2D-Plateformer\Player.hpp(31): warning C4305: 'initializing': truncation from 'double' to 'float'
-E:\Visual Studio\Projects\2D-Plateformer\physics.hpp(64,22): warning C4305: '+=': truncation from 'double' to 'float'
+E:\Visual Studio\Projects\2D-Plateformer\physics.hpp(54,22): warning C4305: '+=': truncation from 'double' to 'float'
+E:\Visual Studio\Projects\2D-Plateformer\main.cpp(27,109): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\main.cpp(27,75): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
   2D-Plateformer-Nigga.vcxproj -> E:\Visual Studio\Projects\2D-Plateformer\x64\Debug\2D-Plateformer-Nigga.exe

@@ -6,15 +6,10 @@
 #include "Player.hpp"
 #include "Hitbox.hpp"
 
-bool control(Player& target) {
-
-	bool trigger = false;
+void control(Player& target) {
 
 	//left
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !(sf::Keyboard::isKeyPressed(sf::Keyboard::D))) {
-
-		if (target.current_direction == Player::R)
-			trigger = true;
 
 		target.current_state = Player::Walk;
 		target.current_direction = Player::L;
@@ -23,9 +18,6 @@ bool control(Player& target) {
 
 	//right
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !(sf::Keyboard::isKeyPressed(sf::Keyboard::A))) {
-
-		if (target.current_direction == Player::L)
-			trigger = true;
 
 		target.current_state = Player::Walk;
 		target.current_direction = Player::R;
@@ -50,8 +42,6 @@ bool control(Player& target) {
 	
 	}
 
-	return trigger;
-
 }
 
 void apply_gravity(sf::Sprite& target, Hitbox hitbox, float& gravity_val, bool& on_ground) {
@@ -59,7 +49,7 @@ void apply_gravity(sf::Sprite& target, Hitbox hitbox, float& gravity_val, bool& 
 	//difference between feet of player and bottom of sprite
 	float offset = 10;
 
-	if ((target.getGlobalBounds().height + target.getPosition().y - offset) < hitbox.get_position().y && on_ground == false) {
+	if ((target.getGlobalBounds().height/2 + target.getPosition().y - offset) < hitbox.get_position().y && on_ground == false) {
 
 		gravity_val += 0.01;
 
@@ -67,8 +57,8 @@ void apply_gravity(sf::Sprite& target, Hitbox hitbox, float& gravity_val, bool& 
 
 	}
 
-	else if ((target.getGlobalBounds().height + target.getPosition().y - offset) >= hitbox.get_position().y && on_ground == false) {
-		target.setPosition(target.getPosition().x, hitbox.get_position().y - target.getGlobalBounds().height + offset);
+	else if ((target.getGlobalBounds().height/2 + target.getPosition().y - offset) >= hitbox.get_position().y && on_ground == false) {
+		target.setPosition(target.getPosition().x, hitbox.get_position().y - target.getGlobalBounds().height/2 + offset);
 		on_ground = true;
 		gravity_val = 0;
 	}
