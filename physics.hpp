@@ -6,41 +6,6 @@
 #include "Player.hpp"
 #include "Hitbox.hpp"
 
-void control(Player& target) {
-
-	//left
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !(sf::Keyboard::isKeyPressed(sf::Keyboard::D))) {
-
-		target.current_state = Player::Walk;
-		target.current_direction = Player::L;
-		target.player_sprite.move(-target.speed, 0);
-	}
-
-	//right
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !(sf::Keyboard::isKeyPressed(sf::Keyboard::A))) {
-
-		target.current_state = Player::Walk;
-		target.current_direction = Player::R;
-		target.player_sprite.move(target.speed, 0);
-	}
-
-	//idle
-	if (!(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || (sf::Keyboard::isKeyPressed(sf::Keyboard::A))) && target.on_ground == true) {
-		target.current_state = Player::Idle;
-	}
-
-	//jump
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && target.on_ground == true) {
-		target.current_state = Player::Jump;
-		target.on_ground = false;
-	}
-
-	if (target.on_ground == false) {
-		target.jump(target.get_jump_force());
-	}
-
-}
-
 void apply_gravity(Player& target, Hitbox hitbox, float& gravity_val, bool& on_ground) {
 
 	//difference between feet of player and bottom of sprite

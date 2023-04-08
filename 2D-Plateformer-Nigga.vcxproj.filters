@@ -41,5 +41,8 @@
     <ClInclude Include="Hitbox.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Controller.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

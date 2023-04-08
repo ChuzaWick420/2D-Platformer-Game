@@ -1,8 +1,8 @@
 ﻿  main.cpp
 E:\Visual Studio\Projects\2D-Plateformer\Player.hpp(31): warning C4305: 'initializing': truncation from 'double' to 'float'
-E:\Visual Studio\Projects\2D-Plateformer\physics.hpp(51,22): warning C4305: '+=': truncation from 'double' to 'float'
-E:\Visual Studio\Projects\2D-Plateformer\physics.hpp(53,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\Visual Studio\Projects\2D-Plateformer\main.cpp(27,109): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer\physics.hpp(16,22): warning C4305: '+=': truncation from 'double' to 'float'
+E:\Visual Studio\Projects\2D-Plateformer\physics.hpp(18,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer\main.cpp(28,109): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -11,12 +11,17 @@ E:\Visual Studio\Projects\2D-Plateformer\main.cpp(27,109): warning C4244: 'argum
           [
               T=float
           ]
-E:\Visual Studio\Projects\2D-Plateformer\main.cpp(27,75): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer\main.cpp(28,75): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
           ]
           and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer\main.cpp(107,57): warning C4244: 'argument': conversion from 'T' to 'const unsigned __int64', possible loss of data
+          with
           [
               T=float
           ]

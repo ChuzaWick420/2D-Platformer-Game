@@ -3,6 +3,7 @@
 #include "Player.hpp"
 #include "physics.hpp"
 #include "Level.hpp"
+#include "Controller.hpp"
 
 #define window_width 1368
 #define window_height 768
@@ -100,7 +101,11 @@ int main() {
 			level.render(game_window);
 			player.render(game_window);
 			player.get_hitbox().render(game_window);
-			level.hitboxes[0].render(game_window);
+
+			//draw the ground tile hitbox under player
+			if(player.on_ground == true)
+				level.hitboxes[player.player_sprite.getPosition().x / 64].render(game_window);
+
 			game_window.display();
 
 			fps.restart();
