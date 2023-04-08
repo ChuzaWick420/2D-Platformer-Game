@@ -11,11 +11,19 @@ Player::Player() {
 
 	}
 
+	//sets up default texture
+	this->player_sprite.setTexture(this->idle_t[0]);
+	this->player_sprite.setScale(this->scale, this->scale);
+
+}
+
+sf::Vector2f Player::get_position() {
+	return this->position;
 }
 
 void Player::render(sf::RenderWindow& target_window) {
 
-	target_window.draw(player_current);
+	target_window.draw(this->player_sprite);
 
 }
 
@@ -24,19 +32,19 @@ void Player::animate(state is_doing, int frame_number) {
 	switch (is_doing){
 
 	case Player::Dead:
-		this->player_current.setTexture(this->dead_t[frame_number]);
+		this->player_sprite.setTexture(this->dead_t[frame_number]);
 		break;
 
 	case Player::Idle:
-		this->player_current.setTexture(this->idle_t[frame_number]);
+		this->player_sprite.setTexture(this->idle_t[frame_number]);
 		break;
 
 	case Player::Walk:
-		this->player_current.setTexture(this->walk_t[frame_number]);
+		this->player_sprite.setTexture(this->walk_t[frame_number]);
 		break;
 
 	case Player::Jump:
-		this->player_current.setTexture(this->jump_t[frame_number]);
+		this->player_sprite.setTexture(this->jump_t[frame_number]);
 		break;
 
 	default:
@@ -46,15 +54,34 @@ void Player::animate(state is_doing, int frame_number) {
 
 	//resize the character in the end depending on direction
 	if (this->current_direction == Player::direction::R)
-		this->player_current.setScale(this->scale, this->scale);
+		this->player_sprite.setScale(this->scale, this->scale);
 
 	if (this->current_direction == Player::direction::L)
-		this->player_current.setScale(-this->scale, this->scale);
+		this->player_sprite.setScale(-this->scale, this->scale);
 
+	//updates hitbox
+	this->hitbox.update(this->player_sprite);
+
+}
+
+void Player::create_hitbox(sf::Vector2f t_position, sf::Vector2f t_size) {
+
+	this->hitbox.create(t_position, t_size);
+
+}
+
+void Player::set_position(sf::Vector2f t_position) {
+	this->position = t_position;
 }
 
 void Player::jump() {
 
+	
 
+}
+
+Hitbox Player::get_hitbox() {
+
+	return this->hitbox;
 
 }

@@ -11,14 +11,22 @@ private:
 
 public:
 
-	Hitbox(sf::Vector2f t_position, sf::Vector2f t_size);
+	Hitbox() {};
 
-	void update(sf::Sprite target);
+	//overloaded version of constructor
+	Hitbox(sf::Vector2f t_position, sf::Vector2f t_size) { this->create(t_position, t_size); };
 
-	bool collides(Hitbox target);
+	void create(sf::Vector2f t_position, sf::Vector2f t_size);
+
+	void update(sf::Sprite& target);
+
+	bool collides(Hitbox& target);
 
 	sf::Vector2f get_position();
 
 	sf::Vector2f get_size();
+
+	//debug area
+	void render(sf::RenderWindow& target_window);
 
 };
