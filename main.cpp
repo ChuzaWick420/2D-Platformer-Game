@@ -65,7 +65,7 @@ int main() {
 		//handles physics timings
 		if (physics_clock.getElapsedTime().asMilliseconds() >= physics_timer) {
 
-			apply_gravity(player.player_sprite, level.hitboxes[0], gravity_coefficient, player.on_ground);
+			apply_gravity(player, level.hitboxes[0], gravity_coefficient, player.on_ground);
 
 			control(player);
 

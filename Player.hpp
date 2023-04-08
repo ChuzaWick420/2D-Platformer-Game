@@ -35,7 +35,7 @@ public:
 
 	void animate(state is_doing, int frame_number);
 
-	void jump();
+	void jump(float force);
 
 	void create_hitbox(sf::Vector2f t_position, sf::Vector2f t_size);
 
@@ -45,7 +45,13 @@ public:
 
 	Hitbox get_hitbox();
 
+	float get_jump_force();
+
+	void set_jump_force(float value);
+
 private:
+
+	float jump_force = 3;
 
 	Hitbox hitbox;
 

@@ -76,9 +76,9 @@ void Player::set_position(sf::Vector2f t_position) {
 	this->position = t_position;
 }
 
-void Player::jump() {
+void Player::jump(float force) {
 
-	
+	this->player_sprite.move(0, -force);
 
 }
 
@@ -86,4 +86,12 @@ Hitbox Player::get_hitbox() {
 
 	return this->hitbox;
 
+}
+
+float Player::get_jump_force() {
+	return this->jump_force;
+}
+
+void Player::set_jump_force(float value) {
+	this->jump_force = value;
 }
