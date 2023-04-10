@@ -47,6 +47,10 @@ void Player::animate(state is_doing, int frame_number) {
 		this->player_sprite.setTexture(this->jump_t[frame_number]);
 		break;
 
+	case Player::Fall:
+		this->player_sprite.setTexture(this->jump_t[frame_number]);
+		break;
+
 	default:
 		break;
 

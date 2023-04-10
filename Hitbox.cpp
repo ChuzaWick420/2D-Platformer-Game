@@ -12,8 +12,10 @@ void Hitbox::create(sf::Vector2f t_position, sf::Vector2f t_size) {
 
 void Hitbox::update(sf::Sprite& target) {
 
+	//updates the rectangle
 	this->hitbox.setPosition(target.getPosition().x - target.getOrigin().x * abs(target.getScale().x), target.getPosition().y - target.getOrigin().y * abs(target.getScale().y));
-
+	//then also its own position
+	this->position = this->hitbox.getPosition();
 }
 
 bool Hitbox::collides(Hitbox& target) {

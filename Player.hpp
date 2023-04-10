@@ -18,7 +18,7 @@ public:
 	};
 
 	enum state {
-		Dead, Idle, Walk, Jump
+		Dead, Idle, Walk, Jump, Fall
 	};
 
 	state current_state = Idle;
