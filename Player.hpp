@@ -9,6 +9,9 @@
 class Player{
 
 public:
+
+	bool is_jumping = false;
+
 	sf::Texture walk_t[10], idle_t[10], jump_t[10], dead_t[10];
 
 	Player();

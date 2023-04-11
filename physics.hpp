@@ -52,4 +52,7 @@ void apply_gravity(Player& target, Level& tile, float& gravity_val, bool& on_gro
 
 	}
 
+	if (target.on_ground == true)
+		target.is_jumping = false;
+
 }
