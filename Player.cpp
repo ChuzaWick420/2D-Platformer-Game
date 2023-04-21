@@ -18,6 +18,7 @@ Player::Player() {
 }
 
 sf::Vector2f Player::get_position() {
+	this->position = this->player_sprite.getPosition();
 	return this->position;
 }
 

@@ -11,10 +11,12 @@ void control(Player& target) {
 
 		if(target.on_ground == true)
 			target.current_state = Player::Walk;
+
 		else {
 
 			if (target.is_jumping == true)
 				target.current_state = Player::Jump;
+
 			else
 				target.current_state = Player::Fall;
 
@@ -34,6 +36,7 @@ void control(Player& target) {
 
 			if (target.is_jumping == true)
 				target.current_state = Player::Jump;
+
 			else
 				target.current_state = Player::Fall;
 
@@ -61,6 +64,21 @@ void control(Player& target) {
 
 	if (target.current_state == Player::Jump) {
 		target.jump(target.get_jump_force());
+	}
+
+	if (target.current_state == Player::Fall) {
+		target.on_ground = false;
+	}
+
+	//debug area
+	//down
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+		target.player_sprite.move(0, 1);
+	}
+
+	//up
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+		target.player_sprite.move(0, -1);
 	}
 
 }

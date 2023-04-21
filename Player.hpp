@@ -17,7 +17,7 @@ public:
 	Player();
 
 	enum direction {
-		R, L
+		R, L, up, down, upR, upL, downR, downL
 	};
 
 	enum state {

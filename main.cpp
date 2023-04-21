@@ -27,16 +27,20 @@ int main() {
 
 	player.player_sprite.setOrigin(sf::Vector2f(player.idle_t[0].getSize().x / 2, player.idle_t[0].getSize().y / 2));
 
+	player.player_sprite.setPosition(64 * 6, 64 * 6);
+
 	player.create_hitbox(
-		player.player_sprite.getPosition(), 
+		{
+		
+			player.player_sprite.getPosition().x - player.player_sprite.getGlobalBounds().width/2,
+			player.player_sprite.getPosition().y - player.player_sprite.getGlobalBounds().height/2
+		
+		},
 		{
 			player.player_sprite.getGlobalBounds().width, 
-			player.player_sprite.getGlobalBounds().height 
+			player.player_sprite.getGlobalBounds().height - 10
 		}
 	);
-
-	//debug player's position
-	std::cout << player.player_sprite.getPosition().x << ", " << player.player_sprite.getPosition().y << std::endl;
 
 	//variables
 	sf::Clock game_ticks, player_ticks, fps, physics_clock;
@@ -102,9 +106,10 @@ int main() {
 			player.render(game_window);
 			player.get_hitbox().render(game_window);
 
-			//draw the ground tile hitbox under player
-			if(player.on_ground == true)
-				level.hitboxes[player.player_sprite.getPosition().x / 64].render(game_window);
+			int index = check_collision(player, level);
+
+			if (index != -1)
+				level.hitboxes[index].render(game_window);
 
 			game_window.display();
 

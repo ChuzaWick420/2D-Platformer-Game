@@ -49,10 +49,6 @@ void Level::create(std::string path, sf::Vector2u tile_size) {
 
 			current_position++;
 
-			if (current_tile == get_tile_at(4, 14)) {
-				std::cout << "Tile: " << "(" << j * tile_size.x << ", " << i * tile_size.y << ")" << std::endl;
-			}
-
 		}
 
 	}
@@ -72,14 +68,6 @@ void Level::create_hitboxes(sf::Vector2u tile_size) {
 		}
 
 	}
-
-	//debug
-	for (std::vector<Hitbox>::iterator i = hitboxes.begin(); i != hitboxes.end(); ++i) {
-
-		std::cout << "Hitbox: " << "(" << i->get_position().x << ", " << i->get_position().y << ")" << std::endl;
-
-	}
-
 
 }
 

@@ -1,2 +1,2 @@
 E:\Visual Studio\Projects\2D-Plateformer-Nigga\x64\Debug\2D-Plateformer-Nigga.exe
-E:\Visual Studio\Projects\2D-Plateformer\x64\Debug\2D-Plateformer-Nigga.exe
+E:\Visual Studio\Projects\2D-Plateformer\x64\Debug\2D-Plateformer.exe
