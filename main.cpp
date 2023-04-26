@@ -70,12 +70,13 @@ int main() {
 		//handles physics timings
 		if (physics_clock.getElapsedTime().asMilliseconds() >= physics_timer) {
 
-			apply_gravity(player, level, gravity_coefficient, player.on_ground);
-
 			control(player);
 
 			//updates hitboxes
-			player.get_hitbox().update(player.player_sprite);
+			player.get_hitbox()->update(player.player_sprite);
+
+			//applies gravity to objects
+			apply_gravity(player, level, gravity_coefficient);
 
 			physics_clock.restart();
 
@@ -102,9 +103,10 @@ int main() {
 		if (fps.getElapsedTime().asMilliseconds() >= fps_timer) {
 
 			game_window.clear();
+
 			level.render(game_window);
 			player.render(game_window);
-			player.get_hitbox().render(game_window);
+			player.get_hitbox()->render(game_window);
 
 			int index = check_collision(player, level);
 

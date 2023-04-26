@@ -81,22 +81,32 @@ void Player::set_position(sf::Vector2f t_position) {
 	this->position = t_position;
 }
 
-void Player::jump(float force) {
+void Player::jump(float gravity) {
+	
+	//if player's vertical velocity looses against gravity's strength then player is falling
+	if (jump_velocity < 0)
+		this->current_state = Player::Fall;
 
-	this->player_sprite.move(0, -force);
+	//otherwise he is jumping but loosing his speed
+	else
+		//keeps subtracting a gravity value from jump velocity
+		this->jump_velocity = this->jump_velocity - 0.03f;
+
+	//then moving the player with net velocity
+	this->player_sprite.move(0, -jump_velocity);
 
 }
 
-Hitbox Player::get_hitbox() {
+Hitbox* Player::get_hitbox() {
 
-	return this->hitbox;
+	return &this->hitbox;
 
 }
 
-float Player::get_jump_force() {
-	return this->jump_force;
+float Player::get_jump_velocity() {
+	return this->jump_velocity;
 }
 
-void Player::set_jump_force(float value) {
-	this->jump_force = value;
+void Player::set_jump_velocity(float value) {
+	this->jump_velocity = value;
 }

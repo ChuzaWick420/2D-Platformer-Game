@@ -10,8 +10,6 @@ class Player{
 
 public:
 
-	bool is_jumping = false;
-
 	sf::Texture walk_t[10], idle_t[10], jump_t[10], dead_t[10];
 
 	Player();
@@ -27,7 +25,8 @@ public:
 	state current_state = Idle;
 	direction current_direction = R;
 
-	bool on_ground = false;
+	bool on_ground = true;
+	bool is_jumping = false;
 
 	sf::Sprite player_sprite;
 
@@ -46,15 +45,15 @@ public:
 
 	void set_position(sf::Vector2f t_position);
 
-	Hitbox get_hitbox();
+	Hitbox* get_hitbox();
 
-	float get_jump_force();
+	float get_jump_velocity();
 
-	void set_jump_force(float value);
+	void set_jump_velocity(float value);
 
 private:
 
-	float jump_force = 3;
+	float jump_velocity = 3;
 
 	Hitbox hitbox;
 
