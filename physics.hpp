@@ -9,7 +9,7 @@
 #include "Hitbox.hpp"
 #include "Level.hpp"
 
-//returns index of hitbox that player is colliding with
+//returns an array which represents which hitboxes the player is colliding with
 std::vector<int> check_collision(Player& target, Level& tile) {
 
 	std::vector<int> collision_map = {-1};
@@ -17,11 +17,12 @@ std::vector<int> check_collision(Player& target, Level& tile) {
 	//iterates over all hitboxes in the level
 	for (std::vector<Hitbox>::iterator i = tile.hitboxes.begin(); i != tile.hitboxes.end(); i++) {
 
+		//creates a new element in the collision map with every tile in the level
 		collision_map.push_back(-1);
 
-		//if player is colliding with a hitbox
+		//if player is colliding with a hitbox currently being checkked
 		if (target.get_hitbox()->collides(*i)) {
-			
+			//set the collision map's corresponding element to 1
 			collision_map[i - tile.hitboxes.begin()] = 1;
 		}
 
@@ -31,7 +32,7 @@ std::vector<int> check_collision(Player& target, Level& tile) {
 
 	}
 
-	//return -1 if no collision
+	//return the collision map
 	return collision_map;
 
 }
@@ -60,46 +61,17 @@ std::string check_direction(Player& target, Hitbox& collider) {
 
 void apply_gravity(Player& target, Level& tile, float& gravity_val) {
 
-	//debugging player state
-	if (false) {
-		switch (target.current_state) {
-		case 0:
-			std::cout << "Dead" << std::endl;
-			break;
-
-		case 1:
-			std::cout << "Idle" << std::endl;
-			break;
-
-		case 2:
-			std::cout << "Walk" << std::endl;
-			break;
-
-		case 3:
-			std::cout << "Jump" << std::endl;
-			break;
-
-		case 4:
-			std::cout << "Fall" << std::endl;
-			break;
-
-		default:
-			std::cout << "Error!" << std::endl;
-			break;
-		}
-	}
-
-	//gets array of hitboxes that player is colliding with
+	//gets the collision map
 	std::vector<int> checker_array = check_collision(target, tile);
 
-	bool is_colliding = false;
+	//initially set on_ground to false
+	target.on_ground = false;
 
+	//if player touches the ground, set on_ground to true
 	for (std::vector<int>::iterator index = checker_array.begin(); index != checker_array.end(); index++) {
 
 		//if there is a collision
 		if (*index == 1) {
-
-			is_colliding = true;
 
 			//if player is touching bottom of any tile
 			if (check_direction(target, tile.hitboxes[index - checker_array.begin()]) == "Bottom" && target.current_state != Player::Jump) {
@@ -117,9 +89,6 @@ void apply_gravity(Player& target, Level& tile, float& gravity_val) {
 				target.set_jump_velocity(3);
 
 			}
-
-			else
-				is_colliding = false;
 
 			//if player is touching top of any tile
 			if (check_direction(target, tile.hitboxes[index - checker_array.begin()]) == "Top") {
@@ -145,9 +114,9 @@ void apply_gravity(Player& target, Level& tile, float& gravity_val) {
 
 	}
 
-	if (is_colliding == false) {
+	//after the whole loop, if there was no floor collision, on_ground will remain false
 
-		target.on_ground = false;
+	if (target.on_ground == false) {
 
 		if (target.current_state == Player::Fall) {
 			gravity_val += 0.02f;
