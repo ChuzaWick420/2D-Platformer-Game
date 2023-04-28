@@ -64,15 +64,4 @@ void control(Player& target) {
 		target.jump(target.get_jump_velocity());
 	}
 
-	//debug area
-	//down
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-		target.player_sprite.move(0, 1);
-	}
-
-	//up
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		target.player_sprite.move(0, -1);
-	}
-
 }

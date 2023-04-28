@@ -108,11 +108,6 @@ int main() {
 			player.render(game_window);
 			player.get_hitbox()->render(game_window);
 
-			int index = check_collision(player, level);
-
-			if (index != -1)
-				level.hitboxes[index].render(game_window);
-
 			game_window.display();
 
 			fps.restart();

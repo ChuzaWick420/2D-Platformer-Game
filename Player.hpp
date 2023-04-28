@@ -25,7 +25,7 @@ public:
 	state current_state = Idle;
 	direction current_direction = R;
 
-	bool on_ground = true;
+	bool on_ground = false;
 	bool is_jumping = false;
 
 	sf::Sprite player_sprite;

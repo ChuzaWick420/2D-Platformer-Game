@@ -10,28 +10,36 @@
 #include "Level.hpp"
 
 //returns index of hitbox that player is colliding with
-int check_collision(Player& target, Level& tile) {
+std::vector<int> check_collision(Player& target, Level& tile) {
+
+	std::vector<int> collision_map = {-1};
 
 	//iterates over all hitboxes in the level
 	for (std::vector<Hitbox>::iterator i = tile.hitboxes.begin(); i != tile.hitboxes.end(); i++) {
 
+		collision_map.push_back(-1);
+
 		//if player is colliding with a hitbox
 		if (target.get_hitbox()->collides(*i)) {
-			//return it's index
-			return (i - tile.hitboxes.begin());
+			
+			collision_map[i - tile.hitboxes.begin()] = 1;
+		}
+
+		else{
+			collision_map[i - tile.hitboxes.begin()] = -1;
 		}
 
 	}
 
 	//return -1 if no collision
-	return -1;
+	return collision_map;
 
 }
 
 std::string check_direction(Player& target, Hitbox& collider) {
 
 	//collider is at bottom
-	if (target.get_hitbox()->get_position().y + target.get_hitbox()->get_size().y - collider.get_size().y < collider.get_position().y && target.get_hitbox()->get_position().y + target.get_hitbox()->get_size().y > collider.get_position().y)
+	if (target.get_hitbox()->get_position().y + target.get_hitbox()->get_size().y - collider.get_size().y / 2 < collider.get_position().y && target.get_hitbox()->get_position().y + target.get_hitbox()->get_size().y > collider.get_position().y)
 		return "Bottom";
 
 	//collider is at right
@@ -48,65 +56,92 @@ std::string check_direction(Player& target, Hitbox& collider) {
 
 void apply_gravity(Player& target, Level& tile, float& gravity_val) {
 
-	//std::cout << "Velocity: " << target.get_jump_velocity() << ", Gravity: " << gravity_val << std::endl;
+	//debugging player state
+	if (false) {
+		switch (target.current_state) {
+		case 0:
+			std::cout << "Dead" << std::endl;
+			break;
 
-	//checks which hitbox player is colliding with
-	int index = check_collision(target, tile);
+		case 1:
+			std::cout << "Idle" << std::endl;
+			break;
 
-	//if player is not colliding with floor
-	if (index == -1) {
+		case 2:
+			std::cout << "Walk" << std::endl;
+			break;
 
-		target.on_ground = false;
+		case 3:
+			std::cout << "Jump" << std::endl;
+			break;
 
-		if (target.current_state == Player::Fall) {
-			gravity_val += 0.03f;
-			target.player_sprite.move(0, gravity_val);
+		case 4:
+			std::cout << "Fall" << std::endl;
+			break;
+
+		default:
+			std::cout << "Error!" << std::endl;
+			break;
 		}
-
 	}
 
-	//if player is colliding with something
-	if (index != -1) {
+	//gets array of hitboxes that player is colliding with
+	std::vector<int> checker_array = check_collision(target, tile);
 
-		//if player is touching bottom
-		if (check_direction(target, tile.hitboxes[index]) == "Bottom" && target.current_state != Player::Jump) {
+	bool is_colliding = false;
 
-			gravity_val = 0;
+	for (std::vector<int>::iterator index = checker_array.begin(); index != checker_array.end(); index++) {
 
-			//move player up till it appears he is at top
- 			target.player_sprite.setPosition(target.get_position().x, tile.hitboxes[index].get_position().y - target.player_sprite.getGlobalBounds().height / 2 + 10);
+		//if there is a collision
+		if (*index == 1) {
 
-			//and anounce that he is on ground now
-			target.on_ground = true;
-			target.is_jumping = false;
+			is_colliding = true;
 
-			//reset vertical velocity
-			target.set_jump_velocity(3);
-		}
-		
-		else {
+			//if player is touching bottom of any tile
+			if (check_direction(target, tile.hitboxes[index - checker_array.begin()]) == "Bottom" && target.current_state != Player::Jump) {
 
-			target.on_ground = false;
+				gravity_val = 0;
 
-			if (target.current_state == Player::Fall) {
-				gravity_val += 0.03f;
-				target.player_sprite.move(0, gravity_val);
+				//move player up till it appears he is at top
+				target.player_sprite.setPosition(target.get_position().x, tile.hitboxes[index - checker_array.begin()].get_position().y - target.player_sprite.getGlobalBounds().height / 2 + 10);
+
+				//and anounce that he is on ground now
+				target.on_ground = true;
+				target.is_jumping = false;
+
+				//reset vertical velocity
+				target.set_jump_velocity(3);
+
+			}
+
+			else
+				is_colliding = false;
+
+			//if player is touching right wall
+			if (check_direction(target, tile.hitboxes[index - checker_array.begin()]) == "Right") {
+				//move player left till it appears he is at left of the wall
+				target.player_sprite.setPosition(tile.hitboxes[index - checker_array.begin()].get_position().x - target.get_hitbox()->get_size().x + target.player_sprite.getGlobalBounds().width / 2 - 1, target.get_position().y);
+			}
+
+			//if player is touching left wall
+			if (check_direction(target, tile.hitboxes[index - checker_array.begin()]) == "Left") {
+				//move player right till it appears he is at right of the wall
+				target.player_sprite.setPosition(tile.hitboxes[index - checker_array.begin()].get_position().x + tile.hitboxes[index - checker_array.begin()].get_size().x + target.player_sprite.getGlobalBounds().width / 2, target.get_position().y);
 			}
 
 		}
 
-		//if player is touching right wall
-		if (check_direction(target, tile.hitboxes[index]) == "Right") {
-			//move player left till it appears he is at left of the wall
-			target.player_sprite.setPosition(tile.hitboxes[index].get_position().x - target.get_hitbox()->get_size().x + target.player_sprite.getGlobalBounds().width / 2, target.get_position().y - 1);
+	}
+
+	if (is_colliding == false) {
+
+		target.on_ground = false;
+
+		if (target.current_state == Player::Fall) {
+			gravity_val += 0.02f;
+			target.player_sprite.move(0, gravity_val);
 		}
-			
-		//if player is touching left wall
-		if (check_direction(target, tile.hitboxes[index]) == "Left") {
-			//move player right till it appears he is at right of the wall
-			target.player_sprite.setPosition(tile.hitboxes[index].get_position().x + tile.hitboxes[index].get_size().x + target.player_sprite.getGlobalBounds().width / 2, target.get_position().y - 1);
-		}
-			
+
 	}
 
 }

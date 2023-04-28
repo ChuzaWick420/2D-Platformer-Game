@@ -15,6 +15,8 @@ Player::Player() {
 	this->player_sprite.setTexture(this->idle_t[0]);
 	this->player_sprite.setScale(this->scale, this->scale);
 
+	this->current_state = Player::Fall;
+
 }
 
 sf::Vector2f Player::get_position() {
@@ -90,7 +92,7 @@ void Player::jump(float gravity) {
 	//otherwise he is jumping but loosing his speed
 	else
 		//keeps subtracting a gravity value from jump velocity
-		this->jump_velocity = this->jump_velocity - 0.03f;
+		this->jump_velocity = this->jump_velocity - 0.02f;
 
 	//then moving the player with net velocity
 	this->player_sprite.move(0, -jump_velocity);
