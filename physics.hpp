@@ -42,6 +42,10 @@ std::string check_direction(Player& target, Hitbox& collider) {
 	if (target.get_hitbox()->get_position().y + target.get_hitbox()->get_size().y - collider.get_size().y / 2 < collider.get_position().y && target.get_hitbox()->get_position().y + target.get_hitbox()->get_size().y > collider.get_position().y)
 		return "Bottom";
 
+	//collider is at top
+	if (target.get_hitbox()->get_position().y > collider.get_position().y + collider.get_size().y / 2 && target.get_hitbox()->get_position().y < collider.get_position().y + collider.get_size().y)
+		return "Top";
+
 	//collider is at right
 	if (target.get_hitbox()->get_position().x + target.get_hitbox()->get_size().x / 2 < collider.get_position().x && target.get_hitbox()->get_position().x + target.get_hitbox()->get_size().x > collider.get_position().x)
 		return "Right";
@@ -116,6 +120,14 @@ void apply_gravity(Player& target, Level& tile, float& gravity_val) {
 
 			else
 				is_colliding = false;
+
+			//if player is touching top of any tile
+			if (check_direction(target, tile.hitboxes[index - checker_array.begin()]) == "Top") {
+				//move player down till it appears he is at bottom
+				target.player_sprite.setPosition(target.get_position().x, tile.hitboxes[index - checker_array.begin()].get_position().y + tile.hitboxes[index - checker_array.begin()].get_size().y + target.player_sprite.getGlobalBounds().height / 2);
+				target.current_state = Player::Fall;
+				target.is_jumping = false;
+			}
 
 			//if player is touching right wall
 			if (check_direction(target, tile.hitboxes[index - checker_array.begin()]) == "Right") {
