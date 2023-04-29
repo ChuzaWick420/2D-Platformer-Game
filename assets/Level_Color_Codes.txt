@@ -1,0 +1,2 @@
+Tile_at(4, 12) - sky - (0, 0, 255)
+Tile_at(4, 14) - Light_brick - (185, 122, 87)

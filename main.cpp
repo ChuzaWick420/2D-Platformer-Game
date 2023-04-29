@@ -14,7 +14,7 @@ int main() {
 	sf::RenderWindow game_window(sf::VideoMode(window_width, window_height), "Plateformer", sf::Style::Default);
 
 	Level level;
-	level.create("1.png", sf::Vector2u(64, 64));
+	level.create("1.png", sf::Vector2u(64, 64), sf::Vector2u(16, 16));
 	level.create_hitboxes(sf::Vector2u(64, 64));
 
 	//window icon

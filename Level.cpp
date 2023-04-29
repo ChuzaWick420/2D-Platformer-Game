@@ -1,10 +1,10 @@
 #include "Level.hpp"
 
-void Level::create(std::string path, sf::Vector2u tile_size) {
+void Level::create(std::string path, sf::Vector2u tile_size, sf::Vector2u Tile_Texture_Size) {
 
 	//loads the input file
 	this->sample.loadFromFile("assets/levels/" + path);
-	this->map.loadFromFile("assets/map.png");
+	this->map.loadFromFile("assets/TileSet/map.png");
 
 	this->level_array.setPrimitiveType(sf::Quads);
 
@@ -39,13 +39,13 @@ void Level::create(std::string path, sf::Vector2u tile_size) {
 			corners[2].position = sf::Vector2f((j * tile_size.x) + tile_size.x, (i * tile_size.y) + tile_size.y);
 			corners[3].position = sf::Vector2f((j * tile_size.x), (i * tile_size.y) + tile_size.y);
 
-			int y_offset = 16 * (current_tile / ((map.getSize().x / 16) + 1));	//16 px tiles
-			int x_offset = 16 * (current_tile % (map.getSize().x / 16));
+			int y_offset = Tile_Texture_Size.y * (current_tile / ((map.getSize().x / Tile_Texture_Size.y) + 1));
+			int x_offset = Tile_Texture_Size.x * (current_tile % (map.getSize().x / Tile_Texture_Size.x));
 
 			corners[0].texCoords = sf::Vector2f(x_offset, y_offset);
-			corners[1].texCoords = sf::Vector2f(x_offset + 16, y_offset);
-			corners[2].texCoords = sf::Vector2f(x_offset + 16, y_offset + 16);
-			corners[3].texCoords = sf::Vector2f(x_offset, y_offset + 16);
+			corners[1].texCoords = sf::Vector2f(x_offset + Tile_Texture_Size.x, y_offset);
+			corners[2].texCoords = sf::Vector2f(x_offset + Tile_Texture_Size.x, y_offset + Tile_Texture_Size.y);
+			corners[3].texCoords = sf::Vector2f(x_offset, y_offset + Tile_Texture_Size.y);
 
 			current_position++;
 
@@ -73,7 +73,7 @@ void Level::create_hitboxes(sf::Vector2u tile_size) {
 
 int Level::get_tile_at(int x, int y) {
 
-	int width = map.getSize().x / 16;
+	int width = map.getSize().x / this->texture_size.x;
 
 	int result = x + ((y * width)) - 1;
 
@@ -96,6 +96,14 @@ void Level::populate(sf::Color target, int x, int y) {
 
 	}
 
+}
+
+sf::Vector2u Level::get_texture_size() {
+	return this->texture_size;
+}
+
+void Level::set_texture_size(sf::Vector2u size) {
+	this->texture_size = size;
 }
 
 void Level::render(sf::RenderWindow& target_window) {

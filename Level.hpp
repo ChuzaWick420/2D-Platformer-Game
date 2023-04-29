@@ -11,6 +11,11 @@
 
 class Level{
 
+private:
+
+	//default texture_size is 16x16
+	sf::Vector2u texture_size = { 16, 16 };
+
 public:
 
 	sf::View camera;
@@ -28,11 +33,15 @@ public:
 
 	void create_hitboxes(sf::Vector2u tile_size);
 
-	void create(std::string path, sf::Vector2u tile_size);
+	void create(std::string path, sf::Vector2u tile_size, sf::Vector2u Tile_Texture_Size);
 
 	void populate(sf::Color target, int x, int y);
 
 	void render(sf::RenderWindow& target_window);
 
 	int get_tile_at(int x, int y);
+
+	sf::Vector2u get_texture_size();
+
+	void set_texture_size(sf::Vector2u size);
 };
