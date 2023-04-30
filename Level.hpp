@@ -33,7 +33,7 @@ public:
 
 	void create_hitboxes(sf::Vector2u tile_size);
 
-	void create(std::string path, sf::Vector2u tile_size, sf::Vector2u Tile_Texture_Size);
+	void create(std::string level_input_path, std::string TileSet, sf::Vector2u tile_size, sf::Vector2u Tile_Texture_Size);
 
 	void populate(sf::Color target, int x, int y);
 

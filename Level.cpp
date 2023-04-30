@@ -1,10 +1,10 @@
 #include "Level.hpp"
 
-void Level::create(std::string path, sf::Vector2u tile_size, sf::Vector2u Tile_Texture_Size) {
+void Level::create(std::string level_input_path, std::string TileSet, sf::Vector2u tile_size, sf::Vector2u Tile_Texture_Size) {
 
 	//loads the input file
-	this->sample.loadFromFile("assets/levels/" + path);
-	this->map.loadFromFile("assets/TileSet/map.png");
+	this->sample.loadFromFile("assets/levels/" + level_input_path);
+	this->map.loadFromFile("assets/TileSet/" + TileSet);
 
 	this->level_array.setPrimitiveType(sf::Quads);
 
@@ -61,6 +61,7 @@ void Level::create_hitboxes(sf::Vector2u tile_size) {
 
 		for (int j = 0; j < level_width; j++) {
 
+			//types of tiles that will have hitboxes
 			if (type[i][j] == get_tile_at(4, 14)) {
 				this->hitboxes.push_back(Hitbox(sf::Vector2f(j * tile_size.x, i * tile_size.y), sf::Vector2f(tile_size.x, tile_size.y)));
 			}
