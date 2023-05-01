@@ -29,16 +29,18 @@ int main() {
 
 	player.player_sprite.setPosition(64 * 6, 64 * 6);
 
+	sf::Vector2f hitbox_offset = {0 , 30};		//10 pixels for feet and head
+
 	player.create_hitbox(
 		{
-		
-			player.player_sprite.getPosition().x - player.player_sprite.getGlobalBounds().width/2,
-			player.player_sprite.getPosition().y - player.player_sprite.getGlobalBounds().height/2
-		
+
+			player.player_sprite.getPosition().x - player.player_sprite.getGlobalBounds().width / 2,
+			player.player_sprite.getPosition().y - player.player_sprite.getGlobalBounds().height / 2 + hitbox_offset.y		//10 for head
+
 		},
 		{
-			player.player_sprite.getGlobalBounds().width, 
-			player.player_sprite.getGlobalBounds().height - 10
+			player.player_sprite.getGlobalBounds().width,
+			player.player_sprite.getGlobalBounds().height - 10 - hitbox_offset.y		//10 for feet, 10 for head
 		}
 	);
 
@@ -54,6 +56,8 @@ int main() {
 	int current_frame = 0;
 
 	float gravity_coefficient = 0;
+
+	game_window.setView(level.camera);
 
 	//game loop
 	while (game_window.isOpen()) {
@@ -73,10 +77,12 @@ int main() {
 			control(player);
 
 			//updates hitboxes
-			player.get_hitbox()->update(player.player_sprite);
+			player.get_hitbox()->update(player.player_sprite, hitbox_offset);
 
 			//applies gravity to objects
 			apply_gravity(player, level, gravity_coefficient);
+
+			level.update(player, game_window);
 
 			physics_clock.restart();
 

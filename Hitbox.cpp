@@ -10,10 +10,10 @@ void Hitbox::create(sf::Vector2f t_position, sf::Vector2f t_size) {
 	
 }
 
-void Hitbox::update(sf::Sprite& target) {
+void Hitbox::update(sf::Sprite& target, sf::Vector2f offset) {
 
 	//updates the rectangle
-	this->hitbox.setPosition(target.getPosition().x - target.getOrigin().x * abs(target.getScale().x), target.getPosition().y - target.getOrigin().y * abs(target.getScale().y));
+	this->hitbox.setPosition(target.getPosition().x - target.getOrigin().x * abs(target.getScale().x), target.getPosition().y - target.getOrigin().y * abs(target.getScale().y) + offset.y);
 	//then also its own position
 	this->position = this->hitbox.getPosition();
 }

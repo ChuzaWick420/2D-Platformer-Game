@@ -18,7 +18,7 @@ public:
 
 	void create(sf::Vector2f t_position, sf::Vector2f t_size);
 
-	void update(sf::Sprite& target);
+	void update(sf::Sprite& target, sf::Vector2f offset);
 
 	bool collides(Hitbox& target);
 

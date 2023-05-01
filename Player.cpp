@@ -66,9 +66,6 @@ void Player::animate(state is_doing, int frame_number) {
 	if (this->current_direction == Player::direction::L)
 		this->player_sprite.setScale(-this->scale, this->scale);
 
-	//updates hitbox
-	this->hitbox.update(this->player_sprite);
-
 }
 
 void Player::create_hitbox(sf::Vector2f t_position, sf::Vector2f t_size) {
