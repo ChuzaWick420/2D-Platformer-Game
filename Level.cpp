@@ -41,7 +41,7 @@ void Level::create(std::string level_input_path, std::string TileSet, sf::Vector
 
 			//gets vertices
 			sf::Vertex* corners = &level_array[current_position * 4];
-
+			
 			//defines position on screen of current quad
 			corners[0].position = sf::Vector2f((j * tile_size.x), (i * tile_size.y));
 			corners[1].position = sf::Vector2f((j * tile_size.x) + tile_size.x, (i * tile_size.y));

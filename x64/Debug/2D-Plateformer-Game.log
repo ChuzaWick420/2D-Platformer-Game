@@ -1,6 +1,17 @@
-﻿  main.cpp
+﻿  GUI.cpp
+E:\Visual Studio\Projects\2D-Plateformer-Game\GUI.cpp(26,68): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+E:\Visual Studio\Projects\2D-Plateformer-Game\GUI.cpp(26,41): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+  main.cpp
 E:\Visual Studio\Projects\2D-Plateformer-Game\Player.hpp(33): warning C4305: 'initializing': truncation from 'double' to 'float'
-E:\Visual Studio\Projects\2D-Plateformer-Game\main.cpp(28,109): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer-Game\main.cpp(35,109): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -9,7 +20,7 @@ E:\Visual Studio\Projects\2D-Plateformer-Game\main.cpp(28,109): warning C4244: '
           [
               T=float
           ]
-E:\Visual Studio\Projects\2D-Plateformer-Game\main.cpp(28,75): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer-Game\main.cpp(35,75): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -18,4 +29,5 @@ E:\Visual Studio\Projects\2D-Plateformer-Game\main.cpp(28,75): warning C4244: 'a
           [
               T=float
           ]
-  2D-Plateformer-Game.vcxproj -> E:\Visual Studio\Projects\2D-Plateformer-Game\Debug\2D-Plateformer-Game.exe
+  Generating Code...
+  2D-Plateformer-Game.vcxproj -> E:\Visual Studio\Projects\2D-Plateformer-Game\2D-Plateformer-Game.exe

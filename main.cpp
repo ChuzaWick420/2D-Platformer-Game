@@ -4,6 +4,7 @@
 #include "physics.hpp"
 #include "Level.hpp"
 #include "Controller.hpp"
+#include "GUI.hpp"
 
 #define window_width 1368
 #define window_height 768
@@ -12,6 +13,12 @@ int main() {
 
 	//window
 	sf::RenderWindow game_window(sf::VideoMode(window_width, window_height), "Plateformer", sf::Style::Default);
+
+	//GUI
+	GUI game;
+
+	//resizes the GUI to fit the window
+	game.resize(sf::Vector2f(window_width, window_height));
 
 	Level level;
 	level.create("1.png", "map.png", sf::Vector2u(64, 64), sf::Vector2u(16, 16));
@@ -52,8 +59,10 @@ int main() {
 	float physics_timer = 1;	//milliseconds
 	float fps_timer = 1;
 
-	const int animation_frames = 10;
-	int current_frame = 0;
+	const int animation_frames_player = 10;
+	const int animation_frames_button = 4;
+	int current_frame_player = 0;
+	int current_frame_button = 0;
 
 	float gravity_coefficient = 0;
 
@@ -92,13 +101,24 @@ int main() {
 		if (game_ticks.getElapsedTime().asMilliseconds() >= game_update_timer) {
 
 			//animation
-			if (current_frame < animation_frames) {
-				player.animate(player.current_state, current_frame);
-				current_frame++;
+			
+			//player
+			if (current_frame_player < animation_frames_player) {
+				player.animate(player.current_state, current_frame_player);
+				current_frame_player++;
 			}
 
 			else
-				current_frame = 0;	//reset
+				current_frame_player = 0;	//reset
+
+			//button
+			if (current_frame_button < animation_frames_button) {
+				game.animate(current_frame_button);
+				current_frame_button++;
+			}
+
+			else
+				current_frame_button = 0;	//reset
 
 			//reset the ticks
 			game_ticks.restart();
@@ -113,6 +133,8 @@ int main() {
 			level.render(game_window);
 			player.render(game_window);
 			player.get_hitbox()->render(game_window);
+
+			game.render(game_window);
 
 			game_window.display();
 
