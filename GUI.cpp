@@ -11,26 +11,15 @@ void GUI::init() {
 	//sets current displayed screen to the main menu
 	Current_Screen = m_menu_s;
 
-	for (int i = 0; i < 4; i++) {
-		//loads play button
-		play_t[i].loadFromFile("assets/GUI/Buttons/Play/" + std::to_string(i + 1) + ".png");
-	}
-
-	//sets the texture to the sprite
-	play_s.setTexture(play_t[0]);
-
-	//scale it up a little bit
-	play_s.setScale(2.5, 2.5);
-
-	//sets origin
-	play_s.setOrigin(play_t[0].getSize().x / 2, play_t[0].getSize().y / 2);
+	//loads the play button
+	Play.create("Play");
 
 }
 
 void GUI::render(sf::RenderWindow& target_window) {
 	//draws the current screen
 	target_window.draw(Current_Screen);
-	target_window.draw(play_s);
+	target_window.draw(*Play.get_sprite());
 }
 
 void GUI::resize(sf::Vector2f size) {
@@ -39,11 +28,11 @@ void GUI::resize(sf::Vector2f size) {
 
 	Current_Screen = m_menu_s;
 
-	//sets the position of the play button in middle of screen
-	play_s.setPosition(Current_Screen.getGlobalBounds().width / 2, Current_Screen.getGlobalBounds().height / 2);
+	//initialize the play button once the screen is resized
+	Play.initialize(sf::Vector2f(size.x / 2, size.y / 2), sf::Vector2f(2.5, 2.5));
+
 }
 
 void GUI::animate(int frame_number) {
-	//sets the texture of the play button to the frame number
-	play_s.setTexture(play_t[frame_number]);
+
 }

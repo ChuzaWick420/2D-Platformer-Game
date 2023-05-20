@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Hitbox.cpp" />
     <ClCompile Include="Level.cpp" />
@@ -156,6 +157,7 @@
     <None Include="2D-Plateformer-Game.exe" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.hpp" />
     <ClInclude Include="Controller.hpp" />
     <ClInclude Include="GUI.hpp" />
     <ClInclude Include="Hitbox.hpp" />

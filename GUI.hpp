@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Button.hpp"
+
 class GUI {
 
 public:
@@ -20,15 +22,17 @@ public:
 
 	void animate(int frame_number);
 
+	Button Play;
+
 private:
 
 	//textures of the GUI componenets
 	sf::Texture 
-		m_menu_t, play_t[4]
+		m_menu_t
 	;
 	
 	//sprites of the GUI components
 	sf::Sprite 
-		m_menu_s, play_s
+		m_menu_s
 	;
 };

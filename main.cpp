@@ -54,6 +54,8 @@ int main() {
 	//variables
 	sf::Clock game_ticks, player_ticks, fps, physics_clock;
 
+	sf::Mouse game_mouse;
+
 	float frames = 20;
 	float game_update_timer = 50;	//milliseconds
 	float physics_timer = 1;	//milliseconds
@@ -111,14 +113,7 @@ int main() {
 			else
 				current_frame_player = 0;	//reset
 
-			//button
-			if (current_frame_button < animation_frames_button) {
-				game.animate(current_frame_button);
-				current_frame_button++;
-			}
-
-			else
-				current_frame_button = 0;	//reset
+			game.Play.animate(game_mouse);
 
 			//reset the ticks
 			game_ticks.restart();
