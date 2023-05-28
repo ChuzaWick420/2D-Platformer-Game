@@ -44,14 +44,18 @@ void Button::animate(sf::Mouse cursor) {
 
 		//if player is not clicking the button
 		//check if his previous state was down
-		else if (this->current_state == down || (this->frame_counter != 0))
+		else if (this->current_state == down || (this->frame_counter != 0)) {
 			//if it was, set the state to up because we are lifting the button after is was pressed
 			this->current_state = up;
+			this->triggered = true;
+		}
 		
 		//if the player is not clicking the button and his previous state was not down
-		else
+		else {
 			//set the state to hover because the cursor is hovering over the button
 			this->current_state = hover;
+			this->triggered = false;
+		}
 	}
 
 	else

@@ -24,6 +24,8 @@ public:
 
 	sf::Sprite* get_sprite() { return &this->frames_s; }
 
+	bool triggered = false;
+
 private:
 	
 	enum state {
