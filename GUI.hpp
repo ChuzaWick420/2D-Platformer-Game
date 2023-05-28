@@ -22,7 +22,16 @@ public:
 
 	void animate(int frame_number);
 
+	void transition();
+
 	Button Play;
+
+	enum state {
+		main_menu,
+		level_selector,
+	};
+
+	state current_state = main_menu;
 
 private:
 

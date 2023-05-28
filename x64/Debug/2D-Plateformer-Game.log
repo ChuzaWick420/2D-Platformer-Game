@@ -1,15 +1,4 @@
-﻿  Button.cpp
-E:\Visual Studio\Projects\2D-Plateformer-Game\Button.cpp(20,92): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-E:\Visual Studio\Projects\2D-Plateformer-Game\Button.cpp(20,57): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-  GUI.cpp
+﻿  GUI.cpp
   main.cpp
 E:\Visual Studio\Projects\2D-Plateformer-Game\Player.hpp(33): warning C4305: 'initializing': truncation from 'double' to 'float'
 E:\Visual Studio\Projects\2D-Plateformer-Game\main.cpp(35,109): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data

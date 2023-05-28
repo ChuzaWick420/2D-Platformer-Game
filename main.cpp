@@ -113,7 +113,11 @@ int main() {
 			else
 				current_frame_player = 0;	//reset
 
-			game.Play.animate(game_mouse);
+			if(game.current_state == game.main_menu)
+				game.Play.animate(game_mouse);
+
+			//moves between different GUI screens
+			game.transition();
 
 			//reset the ticks
 			game_ticks.restart();
