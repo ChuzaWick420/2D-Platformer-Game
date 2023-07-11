@@ -23,6 +23,9 @@ void GUI::render(sf::RenderWindow& target_window) {
 
 	if (this->current_state == main_menu)
 		target_window.draw(*Play.get_sprite());
+	if (this->current_state == level_selector)
+		for (int i = 0; i < LEVELS; i++)
+			target_window.draw(*Levels[i].get_sprite());
 
 }
 
@@ -65,10 +68,33 @@ void GUI::transition() {
 
 	//changes the current screen according to what is happening on screen
 	if (this->Play.triggered == true) {
+
 		Current_Screen = level_selector_s;
 		current_state = level_selector;
 
 		this->construct_screen("level_selector");
+
+		//spawns the level buttons equality distant
+
+		sf::Vector2f spacing = {
+			(1368 / (2 * LEVELS_PER_ROW - 1 + 2)),
+			(768 / (2 * LEVELS_PER_COLUMN - 1 + 2))
+		};
+
+		for (int i = 0; i < LEVELS_PER_ROW; i++) {
+			for (int j = 0; j < LEVELS_PER_COLUMN; j++) {
+
+				//translate 2d to 1d
+				int index = i * LEVELS_PER_COLUMN + j;
+
+				//sets the position of the level buttons
+				Levels[index].initialize(sf::Vector2f(
+					(2 * i + 1) * spacing.x + Levels[index].get_sprite()->getOrigin().x * Levels[index].get_sprite()->getScale().x,
+					(2 * j + 1) * spacing.y + Levels[index].get_sprite()->getOrigin().y
+				), sf::Vector2f(1.3, 1.3));
+			}
+		}
+
 	}
 
 }

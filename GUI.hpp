@@ -4,7 +4,10 @@
 
 #include "Button.hpp"
 
-#define LEVELS 6
+#define LEVELS_PER_ROW 4
+#define LEVELS_PER_COLUMN 3
+
+#define LEVELS LEVELS_PER_ROW * LEVELS_PER_COLUMN
 
 class GUI {
 
@@ -35,6 +38,7 @@ public:
 	enum state {
 		main_menu,
 		level_selector,
+		level_screen
 	};
 
 	state current_state = main_menu;
