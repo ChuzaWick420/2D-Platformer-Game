@@ -54,7 +54,7 @@ void GUI::construct_screen(std::string type) {
 
 		//creates the level buttons
 		for (int i = 0; i < LEVELS; i++) {
-			Levels[i].create("Level");
+			Levels[i].create("Level_Selector");
 		}
 
 	}
