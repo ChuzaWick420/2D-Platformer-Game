@@ -18,10 +18,10 @@ void Level::create(std::string level_input_path, std::string TileSet, sf::Vector
 	this->level_array.setPrimitiveType(sf::Quads);
 
 	//Area of map (unit: tiles) * 4 points (of each tile)
-	this->level_array.resize(level_width * level_height * 4);
+	this->level_array.resize(LEVEL_WIDTH * LEVEL_HEIGHT * 4);
 
-	for (int i = 0; i < level_height; i++) {
-		for (int j = 0; j < level_width; j++) {
+	for (int i = 0; i < LEVEL_HEIGHT; i++) {
+		for (int j = 0; j < LEVEL_WIDTH; j++) {
 
 			//defining the tiles array
 			this->populate(sample.getPixel(j, i), i, j);
@@ -32,9 +32,9 @@ void Level::create(std::string level_input_path, std::string TileSet, sf::Vector
 
 	int current_position = 0;
 
-	for (int i = 0; i < level_height; i++) {
+	for (int i = 0; i < LEVEL_HEIGHT; i++) {
 
-		for (int j = 0; j < level_width; j++) {
+		for (int j = 0; j < LEVEL_WIDTH; j++) {
 
 			//populating the vertex array
 			int current_tile = type[i][j];
@@ -66,9 +66,9 @@ void Level::create(std::string level_input_path, std::string TileSet, sf::Vector
 
 void Level::create_hitboxes(sf::Vector2u tile_size) {
 
-	for (int i = 0; i < level_height; i++) {
+	for (int i = 0; i < LEVEL_HEIGHT; i++) {
 
-		for (int j = 0; j < level_width; j++) {
+		for (int j = 0; j < LEVEL_WIDTH; j++) {
 
 			//types of tiles that will have hitboxes
 			if (type[i][j] == get_tile_at(4, 14)) {

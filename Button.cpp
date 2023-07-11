@@ -3,7 +3,7 @@
 void Button::create(std::string path) {
 	
 	//loads the frames from the path
-	for (int frame = 0; frame < button_frames; frame++) {
+	for (int frame = 0; frame < BUTTON_FRAMES; frame++) {
 
 		//loads the frames 1 by 1
 		this->frames_t[frame].loadFromFile("assets/GUI/Buttons/" + path + "/" + std::to_string(frame + 1) + ".png");
@@ -81,8 +81,8 @@ void Button::animate(sf::Mouse cursor) {
 		//increment the frame counter
 		this->frame_counter++;
 		//if the button is held, keep it at the last frame
-		if (this->frame_counter > button_frames - 1)
-			this->frame_counter = button_frames - 1;
+		if (this->frame_counter > BUTTON_FRAMES - 1)
+			this->frame_counter = BUTTON_FRAMES - 1;
 
 		break;
 

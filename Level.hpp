@@ -7,8 +7,8 @@
 #include "Hitbox.hpp"
 #include "Player.hpp"
 
-#define level_width 72
-#define level_height 12		//in pixels
+#define LEVEL_WIDTH 72
+#define LEVEL_HEIGHT 12		//in pixels
 
 class Level{
 
@@ -26,7 +26,7 @@ public:
 	sf::Image sample;
 	sf::Texture map;
 
-	int type[level_height][level_width];
+	int type[LEVEL_HEIGHT][LEVEL_WIDTH];
 
 	Level() {};
 

@@ -6,19 +6,19 @@
 #include "Controller.hpp"
 #include "GUI.hpp"
 
-#define window_width 1368
-#define window_height 768
+#define WINDOW_WIDTH 1368
+#define WINDOW_HEIGHT 768
 
 int main() {
 
 	//window
-	sf::RenderWindow game_window(sf::VideoMode(window_width, window_height), "Plateformer", sf::Style::Default);
+	sf::RenderWindow game_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Plateformer", sf::Style::Default);
 
 	//GUI
 	GUI game;
 
 	//resizes the GUI to fit the window
-	game.resize(sf::Vector2f(window_width, window_height));
+	game.resize(sf::Vector2f(WINDOW_WIDTH, WINDOW_HEIGHT));
 
 	Level level;
 	level.create("1.png", "map.png", sf::Vector2u(64, 64), sf::Vector2u(16, 16));

@@ -5,7 +5,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#define button_frames 4
+#define BUTTON_FRAMES 4
 
 class Button{
 
@@ -38,7 +38,7 @@ private:
 	state current_state = neutral;
 
 	//texture for the button
-	sf::Texture frames_t[button_frames];
+	sf::Texture frames_t[BUTTON_FRAMES];
 
 	//currently displayed frame (as a sprite)
 	sf::Sprite frames_s;
