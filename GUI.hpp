@@ -4,6 +4,8 @@
 
 #include "Button.hpp"
 
+#define LEVELS 6
+
 class GUI {
 
 public:
@@ -25,6 +27,10 @@ public:
 	void transition();
 
 	Button Play;
+
+	Button Levels[LEVELS];
+
+	void construct_screen(std::string type);
 
 	enum state {
 		main_menu,
