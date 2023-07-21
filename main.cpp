@@ -116,6 +116,15 @@ int main() {
 			if(game.current_state == game.main_menu)
 				game.Play.animate(game_mouse);
 
+			else if (game.current_state == game.level_selector) {
+				for (int i = 0; i < LEVELS_PER_ROW; i++) {
+					for (int j = 0; j < LEVELS_PER_COLUMN; j++) {
+						int index = i * LEVELS_PER_COLUMN + j;
+						game.Levels[index].animate(game_mouse);
+					}
+				}
+			}
+
 			//moves between different GUI screens
 			game.transition();
 
