@@ -47,11 +47,11 @@ private:
 
 	//textures of the GUI componenets
 	sf::Texture 
-		m_menu_t, level_selector_t
+		m_menu_t, level_selector_t, level_screen_t
 	;
 	
 	//sprites of the GUI components
 	sf::Sprite 
-		m_menu_s, level_selector_s
+		m_menu_s, level_selector_s, level_screen_s
 	;
 };

@@ -103,4 +103,14 @@ void GUI::transition() {
 
 	}
 
+	else if (Levels[0].triggered == true) {
+
+		//since we just want the level selector to just disappear, so we set an empty texture/sprite
+		this->Current_Screen = level_screen_s;
+		this->current_state = level_screen;
+
+		//once transiton has be done, reset the trigger
+		Levels[0].triggered = false;
+	}
+
 }
