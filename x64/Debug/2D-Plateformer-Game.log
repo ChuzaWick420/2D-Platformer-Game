@@ -1,6 +1,20 @@
-﻿  GUI.cpp
-E:\Visual Studio\Projects\2D-Plateformer-Game\GUI.cpp(97,29): warning C4305: 'argument': truncation from 'double' to 'T'
+﻿  main.cpp
+E:\Visual Studio\Projects\2D-Plateformer-Game\Player.hpp(33): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Visual Studio\Projects\2D-Plateformer-Game\main.cpp(111,135): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Plateformer-Game\main.cpp(111,94): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
           [
               T=float
           ]
