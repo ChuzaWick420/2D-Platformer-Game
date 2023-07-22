@@ -31,7 +31,12 @@ public:
 
 	Button Play;
 
-	Button Levels[LEVELS];
+	struct Level_Button {
+		Button Level;
+		bool unlocked = false;
+	};
+
+	Level_Button levels[LEVELS];
 
 	void construct_screen(std::string type);
 

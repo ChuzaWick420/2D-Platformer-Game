@@ -120,7 +120,7 @@ int main() {
 				for (int i = 0; i < LEVELS_PER_ROW; i++) {
 					for (int j = 0; j < LEVELS_PER_COLUMN; j++) {
 						int index = i * LEVELS_PER_COLUMN + j;
-						game.Levels[index].animate(game_mouse);
+						game.levels[index].Level.animate(game_mouse);
 					}
 				}
 			}

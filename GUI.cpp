@@ -27,7 +27,7 @@ void GUI::render(sf::RenderWindow& target_window) {
 	if (this->current_state == level_selector) {
 
 		for (int i = 0; i < LEVELS; i++)
-			target_window.draw(*Levels[i].get_sprite());
+			target_window.draw(*levels[i].Level.get_sprite());
 	}
 
 }
@@ -60,7 +60,7 @@ void GUI::construct_screen(std::string type) {
 
 		//creates the level buttons
 		for (int i = 0; i < LEVELS; i++) {
-			Levels[i].create("Level_Selector");
+			levels[i].Level.create("Level_Selector");
 		}
 
 	}
@@ -91,26 +91,28 @@ void GUI::transition() {
 				int index = i * LEVELS_PER_COLUMN + j;
 
 				//sets the position of the level buttons
-				Levels[index].initialize(sf::Vector2f(
-					(2 * i + 1) * spacing.x + Levels[index].get_sprite()->getOrigin().x * Levels[index].get_sprite()->getScale().x,
-					(2 * j + 1) * spacing.y + Levels[index].get_sprite()->getOrigin().y
+				levels[index].Level.initialize(sf::Vector2f(
+					(2 * i + 1) * spacing.x + levels[index].Level.get_sprite()->getOrigin().x * levels[index].Level.get_sprite()->getScale().x,
+					(2 * j + 1) * spacing.y + levels[index].Level.get_sprite()->getOrigin().y
 				), sf::Vector2f(1.3, 1.3));
 			}
 		}
+
+		levels[0].unlocked = true;
 
 		//once transiton has be done, reset the trigger
 		this->Play.triggered = false;
 
 	}
 
-	else if (Levels[0].triggered == true) {
+	else if (levels[0].Level.triggered == true && levels[0].unlocked == true) {
 
 		//since we just want the level selector to just disappear, so we set an empty texture/sprite
 		this->Current_Screen = level_screen_s;
 		this->current_state = level_screen;
 
 		//once transiton has be done, reset the trigger
-		Levels[0].triggered = false;
+		levels[0].Level.triggered = false;
 	}
 
 }
