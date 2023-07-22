@@ -11,6 +11,13 @@
 
 int main() {
 
+	//temporary
+	sf::Texture loading_screen_t;
+	loading_screen_t.loadFromFile("assets/GUI/loading_screen.jpg");
+
+	sf::Sprite loading_screen_s;
+	loading_screen_s.setTexture(loading_screen_t);
+
 	//window
 	sf::RenderWindow game_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Plateformer", sf::Style::Default);
 
@@ -179,6 +186,8 @@ int main() {
 		if (fps.getElapsedTime().asMilliseconds() >= fps_timer) {
 
 			game_window.clear();
+
+			game_window.draw(loading_screen_s);
 
 			if (level_ptr != nullptr)
 				(*level_ptr).render(game_window);
