@@ -33,7 +33,7 @@ public:
 
 	struct Level_Button {
 		Button Level;
-		bool unlocked = false;
+		bool unlocked = true;
 	};
 
 	Level_Button levels[LEVELS];

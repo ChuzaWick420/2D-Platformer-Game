@@ -48,6 +48,8 @@ int main() {
 
 	float gravity_coefficient = 0;
 
+	int active_level = -1;
+
 	//game loop
 	while (game_window.isOpen()) {
 
@@ -83,8 +85,12 @@ int main() {
 				case game.level_selector:
 					for (int i = 0; i < LEVELS_PER_ROW; i++) {
 						for (int j = 0; j < LEVELS_PER_COLUMN; j++) {
-							int index = i * LEVELS_PER_COLUMN + j;
+							int index = j * LEVELS_PER_ROW + i;
 							game.levels[index].Level.animate(game_mouse);
+
+							//store the index of button that was clicked
+							if (game.levels[index].Level.triggered == true)
+								active_level = index;
 						}
 					}
 					break;
@@ -96,7 +102,7 @@ int main() {
 
 						level_ptr = new Level;
 
-						(*level_ptr).create("1.png", "map.png", sf::Vector2u(64, 64), sf::Vector2u(16, 16));
+						(*level_ptr).create(std::to_string(active_level + 1) + ".png", "map.png", sf::Vector2u(64, 64), sf::Vector2u(16, 16));
 						(*level_ptr).create_hitboxes(sf::Vector2u(64, 64));
 	
 						game_window.setView((*level_ptr).camera);

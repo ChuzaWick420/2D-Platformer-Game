@@ -88,7 +88,7 @@ void GUI::transition() {
 			for (int j = 0; j < LEVELS_PER_COLUMN; j++) {
 
 				//translate 2d to 1d
-				int index = i * LEVELS_PER_COLUMN + j;
+				int index = j * LEVELS_PER_ROW + i;
 
 				//sets the position of the level buttons
 				levels[index].Level.initialize(sf::Vector2f(
@@ -105,14 +105,26 @@ void GUI::transition() {
 
 	}
 
-	else if (levels[0].Level.triggered == true && levels[0].unlocked == true) {
+	if (current_state == level_selector) {
 
-		//since we just want the level selector to just disappear, so we set an empty texture/sprite
-		this->Current_Screen = level_screen_s;
-		this->current_state = level_screen;
+		for (int i = 0; i < LEVELS_PER_ROW; i++) {
+			for (int j = 0; j < LEVELS_PER_COLUMN; j++) {
+				//translate 2d to 1d
+				int index = j * LEVELS_PER_ROW + i;
 
-		//once transiton has be done, reset the trigger
-		levels[0].Level.triggered = false;
+				if (levels[index].Level.triggered == true && levels[index].unlocked == true) {
+
+					//since we just want the level selector to just disappear, so we set an empty texture/sprite
+					this->Current_Screen = level_screen_s;
+					this->current_state = level_screen;
+
+					//once transiton has be done, reset the trigger
+					levels[index].Level.triggered = false;
+				}
+
+			}
+		}
+
 	}
 
 }
