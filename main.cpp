@@ -121,7 +121,7 @@ int main() {
 						player_ptr = new Player;
 
 						(*player_ptr).player_sprite.setOrigin(sf::Vector2f((*player_ptr).idle_t[0].getSize().x / 2, (*player_ptr).idle_t[0].getSize().y / 2));
-						(*player_ptr).player_sprite.setPosition(64 * 6, 64 * 6);
+						(*player_ptr).player_sprite.setPosition(64 * 10, 64 * 6);
 
 						(*player_ptr).create_hitbox(
 							{

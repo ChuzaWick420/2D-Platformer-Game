@@ -26,7 +26,7 @@ public:
 	sf::Image sample;
 	sf::Texture map;
 
-	int type[LEVEL_HEIGHT][LEVEL_WIDTH];
+	int type[LEVEL_WIDTH][LEVEL_HEIGHT];
 
 	Level() {};
 

@@ -24,23 +24,21 @@ void Level::create(std::string level_input_path, std::string TileSet, sf::Vector
 		for (int j = 0; j < LEVEL_WIDTH; j++) {
 
 			//defining the tiles array
-			this->populate(sample.getPixel(j, i), i, j);
+			this->populate(sample.getPixel(j, i), j, i);
 
 		}
 
 	}
-
-	int current_position = 0;
 
 	for (int i = 0; i < LEVEL_HEIGHT; i++) {
 
 		for (int j = 0; j < LEVEL_WIDTH; j++) {
 
 			//populating the vertex array
-			int current_tile = type[i][j];
+			int current_tile = type[j][i];
 
 			//gets vertices
-			sf::Vertex* corners = &level_array[current_position * 4];
+			sf::Vertex* corners = &level_array[(j + i * tile_size.x) * 4];
 			
 			//defines position on screen of current quad
 			corners[0].position = sf::Vector2f((j * tile_size.x), (i * tile_size.y));
@@ -48,15 +46,14 @@ void Level::create(std::string level_input_path, std::string TileSet, sf::Vector
 			corners[2].position = sf::Vector2f((j * tile_size.x) + tile_size.x, (i * tile_size.y) + tile_size.y);
 			corners[3].position = sf::Vector2f((j * tile_size.x), (i * tile_size.y) + tile_size.y);
 
-			int y_offset = Tile_Texture_Size.y * (current_tile / ((map.getSize().x / Tile_Texture_Size.x) + 1));
-			int x_offset = Tile_Texture_Size.x * (current_tile % (map.getSize().x / Tile_Texture_Size.x));
+			//current tile starts from 1 to 17
+			int y_offset = Tile_Texture_Size.y * (current_tile / (map.getSize().x / Tile_Texture_Size.x));
+			int x_offset = Tile_Texture_Size.x * (current_tile % ((map.getSize().x / Tile_Texture_Size.x)));
 
 			corners[0].texCoords = sf::Vector2f(x_offset, y_offset);
 			corners[1].texCoords = sf::Vector2f(x_offset + Tile_Texture_Size.x, y_offset);
 			corners[2].texCoords = sf::Vector2f(x_offset + Tile_Texture_Size.x, y_offset + Tile_Texture_Size.y);
 			corners[3].texCoords = sf::Vector2f(x_offset, y_offset + Tile_Texture_Size.y);
-
-			current_position++;
 
 		}
 
@@ -71,10 +68,16 @@ void Level::create_hitboxes(sf::Vector2u tile_size) {
 		for (int j = 0; j < LEVEL_WIDTH; j++) {
 
 			//types of tiles that will have hitboxes
-			if (type[i][j] == get_tile_at(4, 14)) {
+			if (
+				type[j][i] == get_tile_at(4, 14) || 
+				type[j][i] == get_tile_at(14, 1) ||
+				type[j][i] == get_tile_at(13, 1) ||
+				type[j][i] == get_tile_at(15, 1) ||
+				type[j][i] == get_tile_at(1, 2) ||
+				type[j][i] == get_tile_at(3, 2)
+			)
 				this->hitboxes.push_back(Hitbox(sf::Vector2f(j * tile_size.x, i * tile_size.y), sf::Vector2f(tile_size.x, tile_size.y)));
-			}
-
+			
 		}
 
 	}
@@ -85,33 +88,56 @@ int Level::get_tile_at(int x, int y) {
 
 	int width = map.getSize().x / this->texture_size.x;
 
-	int result = x + ((y * width)) - 1;
+	int result = (x - 1) + ((y - 1) * width);
 
 	return result;
 }
 
 void Level::populate(sf::Color target, int x, int y) {
 
-	if (target.r == 0 && target.g == 0 && target.b == 255) {
-
+	if (target == sf::Color(0, 0, 255))
 		//sky
 		this->type[x][y] = get_tile_at(4, 12);
 
-	}
+	else if (target == sf::Color(34, 177, 76))
+		//ground grass mid
+		this->type[x][y] = get_tile_at(14, 1);
 
-	else if (target.r == 185 && target.g == 122 && target.b == 87) {
+	else if (target == sf::Color(34, 176, 76))
+		//ground grass left
+		this->type[x][y] = get_tile_at(13, 1);
 
-		//ground
-		this->type[x][y] = get_tile_at(4, 14);
+	else if (target == sf::Color(34, 178, 76))
+		//ground grass right
+		this->type[x][y] = get_tile_at(15, 1);
 
-	}
+	else if (target == sf::Color(34, 177, 75))
+		//ground grass lower mid
+		this->type[x][y] = get_tile_at(14, 2);
 
-	else if (target.r == 0 && target.g == 255 && target.b == 0) {
+	else if (target == sf::Color(185, 122, 87))
+		//Platform_top_mid
+		this->type[x][y] = get_tile_at(2, 1);
 
-		//bush
+	else if (target == sf::Color(185, 121, 87))
+		//Platform_top_left
 		this->type[x][y] = get_tile_at(1, 1);
 
-	}
+	else if (target == sf::Color(185, 123, 87))
+		//Platform_top_right
+		this->type[x][y] = get_tile_at(3, 1);
+
+	else if (target == sf::Color(185, 122, 86))
+		//Platform_lower_mid
+		this->type[x][y] = get_tile_at(2, 2);
+
+	else if (target == sf::Color(185, 121, 86))
+		//Platform_lower_left
+		this->type[x][y] = get_tile_at(1, 2);
+
+	else if (target == sf::Color(185, 123, 86))
+		//Platform_lower_right
+		this->type[x][y] = get_tile_at(3, 2);
 
 }
 
