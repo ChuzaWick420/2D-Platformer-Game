@@ -74,7 +74,13 @@ void Level::create_hitboxes(sf::Vector2u tile_size) {
 				type[j][i] == get_tile_at(13, 1) ||
 				type[j][i] == get_tile_at(15, 1) ||
 				type[j][i] == get_tile_at(1, 2) ||
-				type[j][i] == get_tile_at(3, 2)
+				type[j][i] == get_tile_at(3, 2) ||
+				type[j][i] == get_tile_at(13, 3) ||
+				type[j][i] == get_tile_at(14, 3) ||
+				type[j][i] == get_tile_at(15, 3) ||
+				type[j][i] == get_tile_at(13, 2) ||
+				type[j][i] == get_tile_at(14, 2) ||
+				type[j][i] == get_tile_at(15, 2)
 			)
 				this->hitboxes.push_back(Hitbox(sf::Vector2f(j * tile_size.x, i * tile_size.y), sf::Vector2f(tile_size.x, tile_size.y)));
 			
@@ -95,49 +101,12 @@ int Level::get_tile_at(int x, int y) {
 
 void Level::populate(sf::Color target, int x, int y) {
 
-	if (target == sf::Color(0, 0, 255))
-		//sky
-		this->type[x][y] = get_tile_at(4, 12);
+	for (int i = 0; i < NO_OF_BLOCKS; i++) {
 
-	else if (target == sf::Color(34, 177, 76))
-		//ground grass mid
-		this->type[x][y] = get_tile_at(14, 1);
+		if (target == blocks.arr[i])
+			this->type[x][y] = get_tile_at(blocks.Position[i][0], blocks.Position[i][1]);
 
-	else if (target == sf::Color(34, 176, 76))
-		//ground grass left
-		this->type[x][y] = get_tile_at(13, 1);
-
-	else if (target == sf::Color(34, 178, 76))
-		//ground grass right
-		this->type[x][y] = get_tile_at(15, 1);
-
-	else if (target == sf::Color(34, 177, 75))
-		//ground grass lower mid
-		this->type[x][y] = get_tile_at(14, 2);
-
-	else if (target == sf::Color(185, 122, 87))
-		//Platform_top_mid
-		this->type[x][y] = get_tile_at(2, 1);
-
-	else if (target == sf::Color(185, 121, 87))
-		//Platform_top_left
-		this->type[x][y] = get_tile_at(1, 1);
-
-	else if (target == sf::Color(185, 123, 87))
-		//Platform_top_right
-		this->type[x][y] = get_tile_at(3, 1);
-
-	else if (target == sf::Color(185, 122, 86))
-		//Platform_lower_mid
-		this->type[x][y] = get_tile_at(2, 2);
-
-	else if (target == sf::Color(185, 121, 86))
-		//Platform_lower_left
-		this->type[x][y] = get_tile_at(1, 2);
-
-	else if (target == sf::Color(185, 123, 86))
-		//Platform_lower_right
-		this->type[x][y] = get_tile_at(3, 2);
+	}
 
 }
 

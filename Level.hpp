@@ -3,12 +3,15 @@
 #include <SFML/Graphics.hpp>
 
 #include <iostream>
+#include <unordered_map>
 
 #include "Hitbox.hpp"
 #include "Player.hpp"
 
 #define LEVEL_WIDTH 72
 #define LEVEL_HEIGHT 12		//in pixels
+
+#define NO_OF_BLOCKS 16
 
 class Level{
 
@@ -47,4 +50,49 @@ public:
 	sf::Vector2u get_texture_size();
 
 	void set_texture_size(sf::Vector2u size);
+
+	struct Block_pieces {
+
+		sf::Color arr[NO_OF_BLOCKS] = {
+			{0, 0, 255},
+			{34, 177, 76},
+			{34, 176, 76},
+			{34, 178, 76},
+			{34, 177, 75},
+			{34, 176, 75},
+			{34, 178, 75},
+			{185, 122, 87},
+			{185, 121, 87},
+			{185, 123, 87},
+			{185, 122, 86},
+			{185, 121, 86},
+			{185, 123, 86},
+			{186, 121, 87},
+			{186, 122, 87},
+			{186, 123, 87},
+		};
+
+		int Position[NO_OF_BLOCKS][2] = {
+			{4, 12},
+			{14, 1},
+			{13, 1},
+			{15, 1},
+			{14, 2},
+			{13, 2},
+			{15, 2},
+			{2, 1},
+			{1, 1},
+			{3, 1},
+			{2, 2},
+			{1, 2},
+			{3, 2},
+			{13, 3},
+			{14, 3},
+			{15, 3}
+		};
+
+	};
+
+	Block_pieces blocks;
+
 };

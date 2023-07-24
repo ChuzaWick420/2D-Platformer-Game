@@ -107,7 +107,7 @@ void apply_gravity(Player& target, Level& tile, float& gravity_val) {
 			//if player is touching left wall
 			if (check_direction(target, tile.hitboxes[index - checker_array.begin()]) == "Left") {
 				//move player right till it appears he is at right of the wall
-				target.player_sprite.setPosition(tile.hitboxes[index - checker_array.begin()].get_position().x + tile.hitboxes[index - checker_array.begin()].get_size().x + target.player_sprite.getGlobalBounds().width / 2, target.get_position().y);
+				target.player_sprite.setPosition(tile.hitboxes[index - checker_array.begin()].get_position().x + tile.hitboxes[index - checker_array.begin()].get_size().x + target.player_sprite.getGlobalBounds().width / 2 + 1, target.get_position().y);
 			}
 
 		}
