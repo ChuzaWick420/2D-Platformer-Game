@@ -166,14 +166,16 @@ int main() {
 			
 			if (player_ptr != nullptr && level_ptr != nullptr) {
 				
-				control(*player_ptr);
-				
-				//updates hitboxes
-				(*player_ptr).get_hitbox()->update((*player_ptr).player_sprite, hitbox_offset);
-	
 				//applies gravity to objects
 				apply_gravity(*player_ptr, *level_ptr, gravity_coefficient);
-	
+
+				control(*player_ptr);
+
+				collision_correction(player_ptr, *level_ptr);
+
+				//updates hitboxes
+				(*player_ptr).get_hitbox()->update((*player_ptr).player_sprite, hitbox_offset);
+
 				(*level_ptr).update(*player_ptr, game_window);
 			
 			}
@@ -189,8 +191,11 @@ int main() {
 
 			game_window.draw(loading_screen_s);
 
-			if (level_ptr != nullptr)
+			if (level_ptr != nullptr) {
 				(*level_ptr).render(game_window);
+				for (std::vector<Hitbox>::iterator i = (*level_ptr).hitboxes.begin(); i != (*level_ptr).hitboxes.end(); i++)
+					(*i).render(game_window);
+			}
 
 			if (player_ptr != nullptr) {
 				(*player_ptr).render(game_window);
