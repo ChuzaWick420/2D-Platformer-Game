@@ -171,13 +171,15 @@ int main() {
 
 				control(*player_ptr);
 
+				(*player_ptr).get_hitbox()->update((*player_ptr).player_sprite, hitbox_offset);
+
 				collision_correction(player_ptr, *level_ptr);
 
 				//updates hitboxes
 				(*player_ptr).get_hitbox()->update((*player_ptr).player_sprite, hitbox_offset);
 
 				(*level_ptr).update(*player_ptr, game_window);
-			
+				
 			}
 
 			physics_clock.restart();
@@ -193,8 +195,8 @@ int main() {
 
 			if (level_ptr != nullptr) {
 				(*level_ptr).render(game_window);
-				for (std::vector<Hitbox>::iterator i = (*level_ptr).hitboxes.begin(); i != (*level_ptr).hitboxes.end(); i++)
-					(*i).render(game_window);
+				//for (std::vector<Hitbox>::iterator i = (*level_ptr).hitboxes.begin(); i != (*level_ptr).hitboxes.end(); i++)
+					//(*i).render(game_window);
 			}
 
 			if (player_ptr != nullptr) {

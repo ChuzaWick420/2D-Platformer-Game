@@ -7,6 +7,8 @@ void Hitbox::create(sf::Vector2f t_position, sf::Vector2f t_size) {
 	this->hitbox.setPosition(t_position);
 	this->hitbox.setSize(t_size);
 	this->hitbox.setFillColor(sf::Color::Color(255, 0, 0, 128));	//debug
+	this->hitbox.setOutlineColor(sf::Color::White);	//debug
+	this->hitbox.setOutlineThickness(1);	//debug
 	
 }
 

@@ -62,8 +62,6 @@ void collision_correction(Player* T, Level& collider) {
 		//if there was a collision, i will be 1 instead of -1
 		if (*i == 1) {
 
-			check = true;
-
 			//corner coordinates
 			sf::Vector2f P_Pos = (*T).get_hitbox()->get_position();
 			sf::Vector2f P_Size = (*T).get_hitbox()->get_size();
@@ -86,10 +84,10 @@ void collision_correction(Player* T, Level& collider) {
 				&& abs(t_hit_right - c_hit_left) <= allowed_overlap.x
 				&& abs(t_hit_bottom - c_hit_top) >= allowed_overlap.y
 			) {
-				//fixes position
-				T->player_sprite.setPosition(sf::Vector2f(c_hit_left - P_Size.x / 2, T->player_sprite.getPosition().y));
 
-				continue;
+				//fixes position
+				T->player_sprite.setPosition(sf::Vector2f(c_hit_left - 1 - P_Size.x / 2, T->player_sprite.getPosition().y));
+				T->current_state = Player::Fall;
 			}
 
 			//collision from left
@@ -97,34 +95,38 @@ void collision_correction(Player* T, Level& collider) {
 				&& abs(t_hit_left - c_hit_right) <= allowed_overlap.x
 				&& abs(t_hit_bottom - c_hit_top) >= allowed_overlap.y
 			) {
+
 				//fixes position
-
-				T->player_sprite.setPosition(sf::Vector2f(c_hit_right + P_Size.x / 2, T->player_sprite.getPosition().y));
-
-				continue;
-			}
-
-			//collision from top
-			if (t_hit_top <= c_hit_bottom && abs(t_hit_top - c_hit_bottom) <= allowed_overlap.y) {
-			
-				//fixes position
+				T->player_sprite.setPosition(sf::Vector2f(c_hit_right + 1 + P_Size.x / 2, T->player_sprite.getPosition().y));
 				T->current_state = Player::Fall;
-				T->on_ground = false;
-				T->is_jumping = false;
-
 			}
 
-			//collision from bottom
-			if (t_hit_bottom > c_hit_top && abs(t_hit_bottom - c_hit_top) <= allowed_overlap.y && (*T).current_state == Player::Fall) {
+			if (abs(c_hit_left - t_hit_right) > allowed_overlap.x && abs(c_hit_right - t_hit_left) > allowed_overlap.x) {
 
-				//fixes position
-				T->current_state = Player::Idle;
-				T->is_jumping = false;
-				T->on_ground = true;
+				//collision from top
+				if (t_hit_top <= c_hit_bottom && abs(t_hit_top - c_hit_bottom) <= allowed_overlap.y) {
 
-				//reset vertical velocity
-				T->set_jump_velocity(3);
+					//fixes position
+					T->current_state = Player::Fall;
+					T->on_ground = false;
+					T->is_jumping = false;
 
+				}
+
+				//collision from bottom
+				if (t_hit_bottom > c_hit_top && abs(t_hit_bottom - c_hit_top) <= allowed_overlap.y && (*T).current_state == Player::Fall) {
+
+					//fixes position
+					T->current_state = Player::Idle;
+					T->is_jumping = false;
+					T->on_ground = true;
+
+					//reset vertical velocity
+					T->set_jump_velocity(3);
+
+				}
+
+				check = true;
 			}
 
 		}
@@ -133,7 +135,6 @@ void collision_correction(Player* T, Level& collider) {
 
 	if (check == false)
 		T->on_ground = false;
-
 
 }
 

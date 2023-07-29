@@ -1,41 +1,41 @@
 ﻿  main.cpp
 E:\Visual Studio\Projects\2D-Plateformer-Game\Player.hpp(33): warning C4305: 'initializing': truncation from 'double' to 'float'
-E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(74,21): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(72,21): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(75,27): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(73,27): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(76,26): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(74,26): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(77,22): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(75,22): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(79,21): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(77,21): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(80,27): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(78,27): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(81,26): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(79,26): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(82,22): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\Visual Studio\Projects\2D-Plateformer-Game\physics.hpp(80,22): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
