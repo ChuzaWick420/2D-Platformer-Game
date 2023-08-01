@@ -112,10 +112,10 @@ void Level::set_texture_size(sf::Vector2u size) {
 void Level::update(Player& target, sf::RenderWindow& target_window) {
 
 	//Position of player relative to the Left side of the window
-	float pos = target.get_position().x - this->camera.getCenter().x + (target_window.getSize().x / 2);
+	float pos = target.get_position().x - this->camera.getCenter().x + (target_window.getSize().x / 2.0f);
 
 	//scroll if pos is less than 1/4 of the window or more than 3/4 of the window
-	if (pos < (target_window.getSize().x / 4) || (3 * target_window.getSize().x / 4) < pos) {
+	if (pos < (target_window.getSize().x / 4.0f) || (3 * target_window.getSize().x / 4.0f) < pos) {
 
 		//keep scrolling if the player is not dead or idle
 		if (target.current_state != Player::Dead && target.current_state != Player::Idle) {

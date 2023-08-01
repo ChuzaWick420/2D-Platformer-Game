@@ -11,8 +11,8 @@
 #define LEVEL_WIDTH 72
 #define LEVEL_HEIGHT 12		//in pixels
 
-#define NO_OF_BLOCKS 16
-#define NO_OF_PHYSICAL_BLOCKS 11
+#define NO_OF_BLOCKS 19
+#define NO_OF_PHYSICAL_BLOCKS 14
 
 class Level{
 
@@ -71,6 +71,9 @@ public:
 			{186, 121, 87},
 			{186, 122, 87},
 			{186, 123, 87},
+			{181, 230, 28},
+			{181, 230, 29},
+			{181, 230, 30}
 		};
 
 		int Position[NO_OF_BLOCKS][2] = {
@@ -89,7 +92,10 @@ public:
 			{3, 2},
 			{13, 3},
 			{14, 3},
-			{15, 3}
+			{15, 3},
+			{13, 4},
+			{14, 4},
+			{15, 4}
 		};
 
 		int Physical_boxes[NO_OF_PHYSICAL_BLOCKS][2] = {
@@ -103,7 +109,10 @@ public:
 			{15, 3},
 			{13, 2},
 			{14, 2},
-			{15, 2}
+			{15, 2},
+			{13, 4},
+			{14, 4},
+			{15, 4}
 		};
 
 	};

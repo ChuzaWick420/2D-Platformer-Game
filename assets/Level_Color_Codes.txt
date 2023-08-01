@@ -1,3 +1,4 @@
+SCHEME: R: Type, G: Horizontal offset, B: Vertical Offset
 Tile_at(4, 12) - sky - (0, 0, 255)
 Tile_at(13, 1) - Grass_floor_left - (34, 176, 76)
 Tile_at(14, 1) - Grass_floor_mid - (34, 177, 76)
@@ -14,3 +15,6 @@ Tile_at(3,2) - Platform_bottom_right - (185, 123, 86)
 Tile_at(13,3) - Platform_top_left - (186, 121, 87)
 Tile_at(14,3) - Platform_top_mid - (186, 122, 87)
 Tile_at(15,3) - Platform_top_right - (186, 123, 87)
+Tile_at(13,4) - Vertical_Pip_top - (181, 230, 28)
+Tile_at(14,4) - Vertical_Pip_mid - (181, 230, 29)
+Tile_at(15,4) -	Vertical_Pip_bottom - (181, 230, 30)
