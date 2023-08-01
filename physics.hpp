@@ -87,7 +87,9 @@ void collision_correction(Player* T, Level& collider) {
 
 				//fixes position
 				T->player_sprite.setPosition(sf::Vector2f(c_hit_left - 1 - P_Size.x / 2, T->player_sprite.getPosition().y));
-				T->current_state = Player::Fall;
+
+				if (!(abs(c_hit_left - t_hit_right) > allowed_overlap.x && abs(c_hit_right - t_hit_left) > allowed_overlap.x))
+					check = true;
 			}
 
 			//collision from left
@@ -98,7 +100,8 @@ void collision_correction(Player* T, Level& collider) {
 
 				//fixes position
 				T->player_sprite.setPosition(sf::Vector2f(c_hit_right + 1 + P_Size.x / 2, T->player_sprite.getPosition().y));
-				T->current_state = Player::Fall;
+				if (!(abs(c_hit_left - t_hit_right) > allowed_overlap.x && abs(c_hit_right - t_hit_left) > allowed_overlap.x))
+					check = true;
 			}
 
 			if (abs(c_hit_left - t_hit_right) > allowed_overlap.x && abs(c_hit_right - t_hit_left) > allowed_overlap.x) {
