@@ -67,23 +67,14 @@ void Level::create_hitboxes(sf::Vector2u tile_size) {
 
 		for (int j = 0; j < LEVEL_WIDTH; j++) {
 
-			//types of tiles that will have hitboxes
-			if (
-				type[j][i] == get_tile_at(4, 14) || 
-				type[j][i] == get_tile_at(14, 1) ||
-				type[j][i] == get_tile_at(13, 1) ||
-				type[j][i] == get_tile_at(15, 1) ||
-				type[j][i] == get_tile_at(1, 2) ||
-				type[j][i] == get_tile_at(3, 2) ||
-				type[j][i] == get_tile_at(13, 3) ||
-				type[j][i] == get_tile_at(14, 3) ||
-				type[j][i] == get_tile_at(15, 3) ||
-				type[j][i] == get_tile_at(13, 2) ||
-				type[j][i] == get_tile_at(14, 2) ||
-				type[j][i] == get_tile_at(15, 2)
-			)
-				this->hitboxes.push_back(Hitbox(sf::Vector2f(j * tile_size.x, i * tile_size.y), sf::Vector2f(tile_size.x, tile_size.y)));
-			
+			//checks through the whole array of block definitions
+			for (int z = 0; z < NO_OF_PHYSICAL_BLOCKS; z++) {
+
+				if(type[j][i] == get_tile_at(this->blocks.Physical_boxes[z][0], this->blocks.Physical_boxes[z][1]))
+					this->hitboxes.push_back(Hitbox(sf::Vector2f(j * tile_size.x, i * tile_size.y), sf::Vector2f(tile_size.x, tile_size.y)));
+
+			}
+
 		}
 
 	}

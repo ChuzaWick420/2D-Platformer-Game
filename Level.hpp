@@ -12,6 +12,7 @@
 #define LEVEL_HEIGHT 12		//in pixels
 
 #define NO_OF_BLOCKS 16
+#define NO_OF_PHYSICAL_BLOCKS 11
 
 class Level{
 
@@ -89,6 +90,20 @@ public:
 			{13, 3},
 			{14, 3},
 			{15, 3}
+		};
+
+		int Physical_boxes[NO_OF_PHYSICAL_BLOCKS][2] = {
+			{4, 14},
+			{14, 1},
+			{13, 1},
+			{1, 2},
+			{3, 2},
+			{13, 3},
+			{14, 3},
+			{15, 3},
+			{13, 2},
+			{14, 2},
+			{15, 2}
 		};
 
 	};
