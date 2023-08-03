@@ -67,7 +67,7 @@ void GUI::construct_screen(std::string type) {
 
 }
 
-void GUI::transition() {
+void GUI::transition(sf::Vector2u screen_resolution) {
 
 	//changes the current screen according to what is happening on screen
 	if (this->Play.triggered == true) {
@@ -80,8 +80,8 @@ void GUI::transition() {
 		//spawns the level buttons equality distant
 
 		sf::Vector2f spacing = {
-			(1368 / (2 * LEVELS_PER_ROW - 1 + 2)),
-			(768 / (2 * LEVELS_PER_COLUMN - 1 + 2))
+			(float (screen_resolution.x) / (2 * LEVELS_PER_ROW - 1 + 2)),
+			(float (screen_resolution.y) / (2 * LEVELS_PER_COLUMN - 1 + 2))
 		};
 
 		for (int i = 0; i < LEVELS_PER_ROW; i++) {

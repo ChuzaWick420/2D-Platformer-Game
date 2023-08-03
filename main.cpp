@@ -6,7 +6,7 @@
 #include "Controller.hpp"
 #include "GUI.hpp"
 
-#define WINDOW_WIDTH 1368
+#define WINDOW_WIDTH 1366
 #define WINDOW_HEIGHT 768
 
 int main() {
@@ -154,7 +154,7 @@ int main() {
 			}
 
 			//moves between different GUI screens
-			game.transition();
+			game.transition(game_window.getSize());
 
 			//reset the ticks
 			game_ticks.restart();

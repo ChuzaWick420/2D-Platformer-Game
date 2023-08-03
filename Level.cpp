@@ -6,10 +6,10 @@ void Level::create(std::string level_input_path, std::string TileSet, sf::Vector
 	this->texture_size = Tile_Texture_Size;
 
 	//centers the view
-	this->camera.setCenter(sf::Vector2f(1368 / 2, 768 / 2));
+	this->camera.setCenter(sf::Vector2f(1366 / 2, 768 / 2));
 
 	//sets the size of the view
-	this->camera.setSize(sf::Vector2f(1368, 768));
+	this->camera.setSize(sf::Vector2f(1366, 768));
 
 	//loads the input file
 	this->sample.loadFromFile("assets/levels/" + level_input_path);

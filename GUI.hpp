@@ -27,7 +27,7 @@ public:
 
 	void animate(int frame_number);
 
-	void transition();
+	void transition(sf::Vector2u screen_resolution);
 
 	Button Play;
 
