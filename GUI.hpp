@@ -23,7 +23,7 @@ public:
 
 	void render(sf::RenderWindow& target_window);
 
-	void resize(sf::Vector2f size);
+	void resize(sf::RenderWindow& t_window);
 
 	void animate(int frame_number);
 
@@ -47,6 +47,8 @@ public:
 	};
 
 	state current_state = main_menu;
+
+	sf::Vector2u aspect_ratio = { 16, 9 };
 
 private:
 

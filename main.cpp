@@ -31,7 +31,7 @@ int main() {
 	GUI game;
 
 	//resizes the GUI to fit the window
-	game.resize(sf::Vector2f(WINDOW_WIDTH, WINDOW_HEIGHT));
+	game.resize(game_window);
 
 	//pointers pointing to objects of the game
 	Level* level_ptr = nullptr;
@@ -64,7 +64,9 @@ int main() {
 
 		while (game_window.pollEvent(window_events)){
 
-			if (window_events.type == sf::Event::Closed) {
+			switch (window_events.type) {
+
+			case sf::Event::Closed:
 
 				//delete the objects
 				if (level_ptr != nullptr && player_ptr != nullptr) {
@@ -75,9 +77,40 @@ int main() {
 				game_window.close();
 
 				return 0;
+
+				break;
+
+			case sf::Event::Resized:
+
+				//vertical
+				float view_height = game_window.getSize().x / 16.0f * 9.0f;
+				float vertical_offset = (game_window.getSize().y - view_height) / 2;
+
+				//horizontal
+				float view_width = game_window.getSize().y / 9.0f * 16.0f;
+				float horizontal_offset = (game_window.getSize().x - view_width) / 2;
+
+				//checks the extreme direction
+				if (game_window.getSize().x / game_window.getSize().y <= 16.0f / 9.0f) {
+					sf::FloatRect visibleArea(0, -vertical_offset, game_window.getSize().x, game_window.getSize().y);
+					game_window.setView(sf::View(visibleArea));
+				}
+				else {
+					sf::FloatRect visibleArea(-horizontal_offset, 0, game_window.getSize().x, game_window.getSize().y);
+					game_window.setView(sf::View(visibleArea));
+				}
+
+
+				game.resize(game_window);
+
+				break;
+
 			}
 
+
 		}
+
+
 
 		//handles game timings
 		if (game_ticks.getElapsedTime().asMilliseconds() >= game_update_timer) {

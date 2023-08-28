@@ -32,15 +32,35 @@ void GUI::render(sf::RenderWindow& target_window) {
 
 }
 
-void GUI::resize(sf::Vector2f size) {
+void GUI::resize(sf::RenderWindow& t_window) {
+
+	//16:9
+	sf::Vector2f scale = { -1, -1};
+
+	if (t_window.getSize().x / t_window.getSize().y <= 16.0f / 9.0f) {
+		scale = {
+			/*width  scale = */ (float)t_window.getSize().x / m_menu_t.getSize().x,
+			/*height scale = */ (float)(t_window.getSize().x / 16 * 9) / m_menu_t.getSize().y
+		};
+	}
+	else {
+		scale = {
+			/*width  scale = */ (float)(t_window.getSize().y / 9 * 16) / m_menu_t.getSize().x,
+			/*height scale = */ (float)t_window.getSize().y / m_menu_t.getSize().y
+		};
+	}
+
 	//gets the size of the window and resizes the current screen to fit it
-	m_menu_s.setScale(size.x / Current_Screen.getGlobalBounds().width, size.y / Current_Screen.getGlobalBounds().height);
+	this->m_menu_s.setScale(scale);
 
 	this->Current_Screen = m_menu_s;
-	this->current_state = main_menu;
+	this->Current_Screen.setScale(scale);
+
+	float horizontal_offset = m_menu_t.getSize().x * scale.x / 2.0f;
+	float vertical_offset   = m_menu_t.getSize().y * scale.y / 2.0f;
 
 	//initialize the play button once the screen is resized
-	Play.initialize(sf::Vector2f(size.x / 2, size.y / 2), sf::Vector2f(2.5, 2.5));
+	this->Play.initialize(sf::Vector2f(horizontal_offset, vertical_offset), sf::Vector2f(2, 2));
 
 }
 

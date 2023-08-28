@@ -1,8 +1,7 @@
 ﻿  GUI.cpp
-E:\Visual Studio\Projects\2D-Plateformer-Game\GUI.cpp(97,29): warning C4305: 'argument': truncation from 'double' to 'T'
+E:\Visual Studio\Projects\2D-Platformer-Game\GUI.cpp(117,29): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-  LINK : E:\Visual Studio\Projects\2D-Plateformer-Game\2D-Plateformer-Game.exe not found or not built by the last incremental link; performing full link
-  2D-Plateformer-Game.vcxproj -> E:\Visual Studio\Projects\2D-Plateformer-Game\2D-Plateformer-Game.exe
+  2D-Plateformer-Game.vcxproj -> E:\Visual Studio\Projects\2D-Platformer-Game\2D-Plateformer-Game.exe

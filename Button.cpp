@@ -17,7 +17,7 @@ void Button::create(std::string path) {
 	this->frames_s.setScale(2.5, 2.5);
 
 	//sets origin
-	this->frames_s.setOrigin(this->frames_t[0].getSize().x / 2, this->frames_t[0].getSize().y / 2);
+	this->frames_s.setOrigin(this->frames_t[0].getSize().x / 2.0f, this->frames_t[0].getSize().y / 2.0f);
 
 }
 
