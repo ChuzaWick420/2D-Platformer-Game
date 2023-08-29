@@ -34,33 +34,49 @@ void GUI::render(sf::RenderWindow& target_window) {
 
 void GUI::resize(sf::RenderWindow& t_window) {
 
-	//16:9
-	sf::Vector2f scale = { -1, -1};
+	//vertical
+	float view_height = t_window.getSize().x / 16.0f * 9.0f;			//view's height as a function of window's width
+	float vertical_offset = (t_window.getSize().y - view_height) / 2;
 
+	//horizontal
+	float view_width = t_window.getSize().y / 9.0f * 16.0f;				//view's width as a function of window's height
+	float horizontal_offset = (t_window.getSize().x - view_width) / 2;
+
+	sf::FloatRect visible_region(
+		sf::Vector2f(0, 0),			//position, which defines where the rendering of texture starts
+		sf::Vector2f(this->m_menu_s.getGlobalBounds().width, this->m_menu_s.getGlobalBounds().height)	//size, which defines the size of the texture to render
+	);
+
+	//sets the rectangle as view
+	sf::View visible_view(visible_region);
+
+	//checks the extreme direction
 	if (t_window.getSize().x / t_window.getSize().y <= 16.0f / 9.0f) {
-		scale = {
-			/*width  scale = */ (float)t_window.getSize().x / m_menu_t.getSize().x,
-			/*height scale = */ (float)(t_window.getSize().x / 16 * 9) / m_menu_t.getSize().y
-		};
+
+		visible_view.setViewport(sf::FloatRect(
+			0.0f,										//Left offset scale 
+			vertical_offset / t_window.getSize().y,		//Top offset scale
+			1.0f,										//Width scale
+			view_height / t_window.getSize().y			//Height scale
+		));
+
 	}
+
 	else {
-		scale = {
-			/*width  scale = */ (float)(t_window.getSize().y / 9 * 16) / m_menu_t.getSize().x,
-			/*height scale = */ (float)t_window.getSize().y / m_menu_t.getSize().y
-		};
+
+		visible_view.setViewport(sf::FloatRect(
+			horizontal_offset / t_window.getSize().x,	//Left offset scale 
+			0.0f,										//Top offset scale
+			view_width / t_window.getSize().x,			//Width scale
+			1.0f										//Height scale
+		));
 	}
 
-	//gets the size of the window and resizes the current screen to fit it
-	this->m_menu_s.setScale(scale);
-
-	this->Current_Screen = m_menu_s;
-	this->Current_Screen.setScale(scale);
-
-	float horizontal_offset = m_menu_t.getSize().x * scale.x / 2.0f;
-	float vertical_offset   = m_menu_t.getSize().y * scale.y / 2.0f;
+	//finally, resets the window view
+	t_window.setView(sf::View(visible_view));
 
 	//initialize the play button once the screen is resized
-	this->Play.initialize(sf::Vector2f(horizontal_offset, vertical_offset), sf::Vector2f(2, 2));
+	this->Play.initialize(sf::Vector2f(t_window.getView().getSize().x / 2, t_window.getView().getSize().y / 2), sf::Vector2f(3, 3));
 
 }
 

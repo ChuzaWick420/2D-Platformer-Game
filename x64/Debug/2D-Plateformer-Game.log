@@ -1,5 +1,5 @@
 ﻿  GUI.cpp
-E:\Visual Studio\Projects\2D-Platformer-Game\GUI.cpp(117,29): warning C4305: 'argument': truncation from 'double' to 'T'
+E:\Visual Studio\Projects\2D-Platformer-Game\GUI.cpp(133,29): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float

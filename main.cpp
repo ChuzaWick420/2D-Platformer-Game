@@ -82,25 +82,6 @@ int main() {
 
 			case sf::Event::Resized:
 
-				//vertical
-				float view_height = game_window.getSize().x / 16.0f * 9.0f;
-				float vertical_offset = (game_window.getSize().y - view_height) / 2;
-
-				//horizontal
-				float view_width = game_window.getSize().y / 9.0f * 16.0f;
-				float horizontal_offset = (game_window.getSize().x - view_width) / 2;
-
-				//checks the extreme direction
-				if (game_window.getSize().x / game_window.getSize().y <= 16.0f / 9.0f) {
-					sf::FloatRect visibleArea(0, -vertical_offset, game_window.getSize().x, game_window.getSize().y);
-					game_window.setView(sf::View(visibleArea));
-				}
-				else {
-					sf::FloatRect visibleArea(-horizontal_offset, 0, game_window.getSize().x, game_window.getSize().y);
-					game_window.setView(sf::View(visibleArea));
-				}
-
-
 				game.resize(game_window);
 
 				break;
