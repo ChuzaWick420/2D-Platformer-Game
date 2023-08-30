@@ -21,6 +21,8 @@ public:
 
 	void init();
 
+	void fit(sf::RenderWindow& t_window);
+
 	void render(sf::RenderWindow& target_window);
 
 	void resize(sf::RenderWindow& t_window);

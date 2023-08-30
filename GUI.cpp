@@ -17,6 +17,21 @@ void GUI::init() {
 
 }
 
+void GUI::fit(sf::RenderWindow& t_window) {
+
+	//scale the menu according to the window size
+	this->m_menu_s.setScale(
+		t_window.getSize().x / this->m_menu_s.getGlobalBounds().width,
+		t_window.getSize().y / this->m_menu_s.getGlobalBounds().height
+	);
+
+	Current_Screen = m_menu_s;
+
+	//initialize the play button once the screen is resized
+	this->Play.initialize(sf::Vector2f(t_window.getSize().x / 2, t_window.getSize().y / 2), sf::Vector2f(3, 3));
+
+}
+
 void GUI::render(sf::RenderWindow& target_window) {
 	//draws the current screen
 	target_window.draw(this->Current_Screen);
@@ -74,9 +89,6 @@ void GUI::resize(sf::RenderWindow& t_window) {
 
 	//finally, resets the window view
 	t_window.setView(sf::View(visible_view));
-
-	//initialize the play button once the screen is resized
-	this->Play.initialize(sf::Vector2f(t_window.getView().getSize().x / 2, t_window.getView().getSize().y / 2), sf::Vector2f(3, 3));
 
 }
 

@@ -31,7 +31,7 @@ int main() {
 	GUI game;
 
 	//resizes the GUI to fit the window
-	game.resize(game_window);
+	game.fit(game_window);
 
 	//pointers pointing to objects of the game
 	Level* level_ptr = nullptr;
