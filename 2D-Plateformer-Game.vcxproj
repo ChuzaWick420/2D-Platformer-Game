@@ -146,25 +146,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Button.cpp" />
-    <ClCompile Include="GUI.cpp" />
-    <ClCompile Include="Hitbox.cpp" />
-    <ClCompile Include="Level.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="src\Button.cpp" />
+    <ClCompile Include="src\GUI.cpp" />
+    <ClCompile Include="src\Hitbox.cpp" />
+    <ClCompile Include="src\Level.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
-    <None Include="2D-Plateformer-Game.exe" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Button.hpp" />
-    <ClInclude Include="Controller.hpp" />
-    <ClInclude Include="GUI.hpp" />
-    <ClInclude Include="Hitbox.hpp" />
-    <ClInclude Include="Level.hpp" />
-    <ClInclude Include="physics.hpp" />
-    <ClInclude Include="Player.hpp" />
+    <ClInclude Include="src\Button.hpp" />
+    <ClInclude Include="src\Controller.hpp" />
+    <ClInclude Include="src\GUI.hpp" />
+    <ClInclude Include="src\Hitbox.hpp" />
+    <ClInclude Include="src\Level.hpp" />
+    <ClInclude Include="src\physics.hpp" />
+    <ClInclude Include="src\Player.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\bullet.png" />

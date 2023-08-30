@@ -19,7 +19,7 @@ int main() {
 	loading_screen_s.setTexture(loading_screen_t);
 
 	//window
-	sf::RenderWindow game_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Plateformer", sf::Style::Default);
+	sf::RenderWindow game_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Platformer", sf::Style::Default);
 
 	//window icon
 	sf::Image w_icon;
