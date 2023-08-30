@@ -1,3 +1,257 @@
 ﻿E:\Visual Studio\2022 community ide\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (2D-Plateformer-Game.vcxproj, 2D-Platformer-Game.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  LINK : E:\Visual Studio\Projects\2D-Platformer-Game\2D-Platformer-Game.exe not found or not built by the last incremental link; performing full link
+  Button.cpp
+  GUI.cpp
+E:\Visual Studio\Projects\2D-Platformer-Game\src\GUI.cpp(31,84): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\GUI.cpp(31,58): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\GUI.cpp(145,30): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+  Hitbox.cpp
+  Level.cpp
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Player.hpp(33): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(44,61): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(44,42): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(45,75): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(45,57): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(46,90): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(46,57): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(47,76): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(47,42): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(53,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(53,40): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(54,72): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(54,49): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(55,81): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(55,49): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(56,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(56,40): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(74,121): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(74,108): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(74,70): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Level.cpp(74,53): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  main.cpp
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Player.hpp(33): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Visual Studio\Projects\2D-Platformer-Game\src\physics.hpp(72,21): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\physics.hpp(73,27): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\physics.hpp(74,26): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\physics.hpp(75,22): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\physics.hpp(77,21): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\physics.hpp(78,27): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\physics.hpp(79,26): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\physics.hpp(80,22): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\main.cpp(137,135): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Visual Studio\Projects\2D-Platformer-Game\src\main.cpp(137,94): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  Player.cpp
+E:\Visual Studio\Projects\2D-Platformer-Game\src\Player.hpp(33): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Generating Code...
   2D-Plateformer-Game.vcxproj -> E:\Visual Studio\Projects\2D-Platformer-Game\2D-Platformer-Game.exe
