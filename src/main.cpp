@@ -100,14 +100,14 @@ int main() {
 			switch (game.current_state) {
 			
 				case game.main_menu:
-					game.Play.animate(game_mouse);
+					game.Play.animate(game_mouse, game_window);
 					break;
 
 				case game.level_selector:
 					for (int i = 0; i < LEVELS_PER_ROW; i++) {
 						for (int j = 0; j < LEVELS_PER_COLUMN; j++) {
 							int index = j * LEVELS_PER_ROW + i;
-							game.levels[index].Level.animate(game_mouse);
+							game.levels[index].Level.animate(game_mouse, game_window);
 
 							//store the index of button that was clicked
 							if (game.levels[index].Level.triggered == true)

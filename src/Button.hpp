@@ -18,7 +18,7 @@ public:
 	//sets position, scale of the button
 	void initialize(sf::Vector2f position, sf::Vector2f scale);
 
-	void animate(sf::Mouse cursor);
+	void animate(sf::Mouse cursor, sf::RenderWindow& t_window);
 
 	void render(sf::RenderWindow& target_window);
 

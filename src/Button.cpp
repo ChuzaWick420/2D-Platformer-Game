@@ -32,11 +32,25 @@ void Button::render(sf::RenderWindow& target_window) {
 	target_window.draw(this->frames_s);
 }
 
-void Button::animate(sf::Mouse cursor) {
+void Button::animate(sf::Mouse cursor, sf::RenderWindow& t_window) {
 
 	//sets the states of the button according to cursor's state and position
+
+	//position of cursor relative to the window
+	sf::Vector2i cursor_position = sf::Mouse::getPosition(t_window);
+
+	sf::Vector2f view_size = t_window.getView().getSize();
+	sf::Vector2u window_size = t_window.getSize();
+
+	//scale = view size / window size
+	sf::Vector2f view_scale = sf::Vector2f(view_size.x / window_size.x, view_size.y / window_size.y);
+
 	//if the cursor is hovering over the button
-	if (this->frames_s.getGlobalBounds().contains(sf::Vector2f(cursor.getPosition()))) {
+	if (this->frames_s.getGlobalBounds()
+		.contains(sf::Vector2f(
+			cursor_position.x * view_scale.x, 
+			cursor_position.y * view_scale.y
+		))) {
 
 		//if player is clicking the button
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
