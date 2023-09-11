@@ -127,6 +127,10 @@ void Level::update(Player& target, sf::RenderWindow& target_window) {
 
 	}
 
+	sf::View current_window_view = target_window.getView();
+
+	this->camera.setViewport(current_window_view.getViewport());
+
 }
 
 void Level::render(sf::RenderWindow& target_window) {
