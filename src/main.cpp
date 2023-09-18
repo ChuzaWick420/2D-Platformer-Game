@@ -40,14 +40,15 @@ int main() {
 	sf::Vector2f hitbox_offset = { 0 , 30 };		//10 pixels for feet and head
 
 	//variables
-	sf::Clock game_ticks, player_ticks, fps, physics_clock;
+	sf::Clock game_ticks, player_ticks, fps_tick, physics_clock;
 
 	sf::Mouse game_mouse;
 
 	float frames = 20;
 	float game_update_timer = 50;	//milliseconds
-	float physics_timer = 1;	//milliseconds
-	float fps_timer = 1;
+	float physics_timer = 1.5f;	//milliseconds
+	float fps = 60.0f;
+	float fps_timer = 1.0f / fps;
 
 	const int animation_frames_player = 10;
 	const int animation_frames_button = 4;
@@ -146,7 +147,7 @@ int main() {
 							},
 							{
 								(*player_ptr).player_sprite.getGlobalBounds().width,
-								(*player_ptr).player_sprite.getGlobalBounds().height - 10 - hitbox_offset.y		//10 for feet, 10 for head
+								(*player_ptr).player_sprite.getGlobalBounds().height - 10 - hitbox_offset.y		//10 for feet, 30 for head
 							}
 						);
 
@@ -163,8 +164,6 @@ int main() {
 					else
 						current_frame_player = 0;	//reset
 
-			default:
-				break;
 			}
 
 			//moves between different GUI screens
@@ -200,8 +199,8 @@ int main() {
 
 		}
 
-		//handles fps and drawing timings
-		if (fps.getElapsedTime().asMilliseconds() >= fps_timer) {
+		//handles fps_tick and drawing timings
+		if (fps_tick.getElapsedTime().asMilliseconds() >= fps_timer * 1000) {
 
 			game_window.clear();
 
@@ -222,7 +221,7 @@ int main() {
 
 			game_window.display();
 
-			fps.restart();
+			fps_tick.restart();
 		}
 
 	}
