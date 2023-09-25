@@ -1,8 +1,10 @@
 .vs/
 x64/
-Debug
+Debug/
+Release/
 2D-Plateformer-Game.vcxproj
 2D-Plateformer-Game.vcxproj.filters
+2D-Plateformer-Game.vcxproj.users
 2D-Platformer-Game.sln
 2D-Platformer-Game.exe
 2D-Platformer-Game.pdb

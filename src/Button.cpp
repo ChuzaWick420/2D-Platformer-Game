@@ -6,7 +6,7 @@ void Button::create(std::string path) {
 	for (int frame = 0; frame < BUTTON_FRAMES; frame++) {
 
 		//loads the frames 1 by 1
-		this->frames_t[frame].loadFromFile("assets/GUI/Buttons/" + path + "/" + std::to_string(frame + 1) + ".png");
+		this->frames_t[frame].loadFromFile("../assets/GUI/Buttons/" + path + "/" + std::to_string(frame + 1) + ".png");
 
 	}
 

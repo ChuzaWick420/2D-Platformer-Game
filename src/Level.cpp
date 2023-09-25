@@ -12,8 +12,8 @@ void Level::create(std::string level_input_path, std::string TileSet, sf::Vector
 	this->camera.setSize(sf::Vector2f(1366, 768));
 
 	//loads the input file
-	this->sample.loadFromFile("assets/levels/" + level_input_path);
-	this->map.loadFromFile("assets/TileSet/" + TileSet);
+	this->sample.loadFromFile("../assets/levels/" + level_input_path);
+	this->map.loadFromFile("../assets/TileSet/" + TileSet);
 
 	this->level_array.setPrimitiveType(sf::Quads);
 

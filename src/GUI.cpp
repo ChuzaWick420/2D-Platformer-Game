@@ -3,7 +3,7 @@
 void GUI::init() {
 
 	//loads the main menu
-	m_menu_t.loadFromFile("assets/GUI/mainmenu.jpg");
+	m_menu_t.loadFromFile("../assets/GUI/mainmenu.jpg");
 
 	//sets the texture to the sprite
 	m_menu_s.setTexture(m_menu_t);
@@ -101,7 +101,7 @@ void GUI::construct_screen(std::string type) {
 	if (type == "level_selector") {
 
 		//loads the level selector
-		this->level_selector_t.loadFromFile("assets/GUI/level_selector.png");
+		this->level_selector_t.loadFromFile("../assets/GUI/level_selector.png");
 
 		//sets the texture of level selector to the sprite
 		this->level_selector_s.setTexture(this->level_selector_t);
