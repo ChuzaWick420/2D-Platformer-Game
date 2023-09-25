@@ -2,6 +2,7 @@
 x64/
 Debug/
 Release/
+build/
 2D-Plateformer-Game.vcxproj
 2D-Plateformer-Game.vcxproj.filters
 2D-Plateformer-Game.vcxproj.users
