@@ -4,10 +4,10 @@ Player::Player() {
 
 	for (int i = 0; i < 10; i++) {
 
-		walk_t[i].loadFromFile("assets/Player/Walk (" + std::to_string(i + 1) + ").png");
-		idle_t[i].loadFromFile("assets/Player/Idle (" + std::to_string(i + 1) + ").png");
-		jump_t[i].loadFromFile("assets/Player/Jump (" + std::to_string(i + 1) + ").png");
-		dead_t[i].loadFromFile("assets/Player/Dead (" + std::to_string(i + 1) + ").png");
+		walk_t[i].loadFromFile("../assets/Player/Walk (" + std::to_string(i + 1) + ").png");
+		idle_t[i].loadFromFile("../assets/Player/Idle (" + std::to_string(i + 1) + ").png");
+		jump_t[i].loadFromFile("../assets/Player/Jump (" + std::to_string(i + 1) + ").png");
+		dead_t[i].loadFromFile("../assets/Player/Dead (" + std::to_string(i + 1) + ").png");
 
 	}
 

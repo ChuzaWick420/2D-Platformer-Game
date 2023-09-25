@@ -13,7 +13,7 @@ int main() {
 
 	//temporary
 	sf::Texture loading_screen_t;
-	loading_screen_t.loadFromFile("assets/GUI/loading_screen.jpg");
+	loading_screen_t.loadFromFile("../assets/GUI/loading_screen.jpg");
 
 	sf::Sprite loading_screen_s;
 	loading_screen_s.setTexture(loading_screen_t);
@@ -23,7 +23,7 @@ int main() {
 
 	//window icon
 	sf::Image w_icon;
-	w_icon.loadFromFile("assets/bullet.png");
+	w_icon.loadFromFile("../assets/bullet.png");
 
 	game_window.setIcon(w_icon.getSize().x, w_icon.getSize().y, w_icon.getPixelsPtr());
 
