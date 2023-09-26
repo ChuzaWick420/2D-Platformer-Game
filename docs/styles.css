@@ -1,6 +1,15 @@
 #main_heading {
+
     color: whitesmoke;
     text-align: center;
+
+}
+
+#src_code_description_table, #src_code_description_table td, #src_code_description_table th {
+
+    color: whitesmoke;
+    border:solid 1px rgb(100, 100, 100);
+    border-collapse: collapse;
 }
 
 body {
