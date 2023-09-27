@@ -20,7 +20,13 @@
 }
 
 .filename {
-    color: limegreen;
+    color: #3feb8a;
+}
+
+.filename:hover {
+    color:rgb(33, 134, 33);
+    transition-property: color;
+    transition-duration: 0.5s;
 }
 
 code {
