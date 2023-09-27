@@ -10,6 +10,7 @@
     color: whitesmoke;
     border:solid 1px rgb(100, 100, 100);
     border-collapse: collapse;
+    font-size: 17px;
 }
 
 #src_code_description_table {
